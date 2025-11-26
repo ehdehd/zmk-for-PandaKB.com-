@@ -1,6 +1,6 @@
 file_format: "1"
-id: corne
-name: CORNE
+id: PandaKB_Klor
+name: PandaKB_Klor
 type: shield
 url: https://PandaKB.com
 requires: [Nice!Nano]
@@ -10,5 +10,5 @@ features:
   - display
   - underglow
 siblings:
-  - corne_left
-  - corne_right
+  - Klor_left
+  - Klor_right
