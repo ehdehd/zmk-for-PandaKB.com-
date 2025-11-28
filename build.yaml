@@ -1,6 +1,6 @@
 include:
 # Klor without dongle 不带dongle的Klor
-  # Klor with oled display(with nice_oled module) 适用于带oled的Klor
+  # Klor with 0.91oled display(with nice_oled module) 适用于带0.91寸oled的Klor
   - board: nice_nano_v2 
     shield: Klor_left nice_oled
     snippet: studio-rpc-usb-uart 
@@ -31,20 +31,27 @@ include:
     shield: Klor_dongle_central dongle_screen
     snippet: studio-rpc-usb-uart
     artifact-name: Klor_central_dongle
-  # peripheral with oled display(with nice_oled module)
+  # peripheral with 0.91oled display(with nice_oled module) 适用于带0.91寸oled的Klor
   - board: nice_nano_v2
     shield: Klor_dongle_left nice_oled
     artifact-name: Klor_peripheral_left_oled
   - board: nice_nano_v2
     shield: Klor_dongle_right nice_oled
     artifact-name: Klor_peripheral_right_oled   
-  # peripheral with nice!view display(with nice_view_custom module)
+  # peripheral with nice!view display(with nice_view_custom module) 适用于带nice_view的Klor
   - board: nice_nano_v2
     shield: Klor_dongle_left Nice_view_config nice_view_custom
     artifact-name: Klor_peripheral_left_nice_view
   - board: nice_nano_v2
     shield: Klor_dongle_right Nice_view_config nice_view_custom
     artifact-name: Klor_peripheral_right_nice_view
- 
+   # peripheral with vista508 display 适用于带nice_view的Klor
+  - board: nice_nano_v2
+    shield: Klor_dongle_left vista508
+    artifact-name: Klor_peripheral_left_vista508
+  - board: nice_nano_v2
+    shield: Klor_dongle_right vista508
+    artifact-name: Klor_peripheral_right_vista508
+
   - board: nice_nano_v2
     shield: settings_reset
