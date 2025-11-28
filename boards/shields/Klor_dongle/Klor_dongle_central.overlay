@@ -5,7 +5,7 @@
 *
 */
 
-#include "Corne_dongle.dtsi"
+#include "Klor_dongle.dtsi"
 
 /{
     chosen {
