@@ -9,6 +9,7 @@ features:
   - keys
   - display
   - underglow
+  - zmk studio
 siblings:
   - Klor_left
   - Klor_right
