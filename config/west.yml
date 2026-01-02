@@ -53,5 +53,8 @@ manifest:
     - name: zmk-ls0xxvcom-driver
       remote: MickiusMousius
       revision: main
+    - name: zmk-oled-adapter
+      remote: mctechnology17
+      revision: main
   self:
     path: config
