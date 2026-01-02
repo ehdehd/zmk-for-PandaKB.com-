@@ -47,5 +47,21 @@
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
             display-name = "LAYER 2";
         };
+                extra1 {
+            status = "reserved";
+                display-name = "LAYER 3";
+        };
+        extra2 {
+            status = "reserved";
+                display-name = "LAYER 4";
+        };
+        extra3 {
+            status = "reserved";
+                display-name = "LAYER 5";
+        };
+        extra4 {
+            status = "reserved";
+                display-name = "LAYER 6";
+        };
     };
 };
