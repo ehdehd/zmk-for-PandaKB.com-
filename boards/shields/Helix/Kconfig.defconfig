@@ -1,23 +1,17 @@
-if SHIELD_HELIX_LEFT
+if SHIELD_HELIX_L
 
 config ZMK_KEYBOARD_NAME
 	default "Helix"
 
-config ZMK_SPLIT_BLE_ROLE_CENTRAL
+config ZMK_SPLIT_ROLE_CENTRAL
 	default y
 
 endif
 
-if SHIELD_HELIX_LEFT || SHIELD_HELIX_RIGHT
+if SHIELD_HELIX_L || SHIELD_HELIX_R
 
 config ZMK_SPLIT
 	default y
-
-endif
-if SHIELD_HELIX_LEFT || SHIELD_HELIX_RIGHT
-
-config ZMK_SPLIT
-    default y
 
 if ZMK_DISPLAY
 
