@@ -2,19 +2,19 @@ include:
 # Helix without dongle 不带dongle的Helix
   # Helix with oled display(with nice_oled module) 适用于带oled的Helix
   - board: nice_nano_v2 
-    shield: Helix_left nice_oled
+    shield: Helix_L nice_oled
     snippet: studio-rpc-usb-uart 
     artifact-name: Helix_left_oled
   - board: nice_nano_v2
-    shield: Helix_right nice_oled
+    shield: Helix_R nice_oled
     artifact-name: Helix_right_oled
   # Helix with nice!view display(with nice_view_custom module) 适用于带nice_view的Helix
   - board: nice_nano_v2
-    shield: Helix_left Nice_view_config nice_view_custom
+    shield: Helix_L Nice_view_config nice_view_custom
     snippet: studio-rpc-usb-uart
     artifact-name: Helix_left_nice_view
   - board: nice_nano_v2
-    shield: Helix_right Nice_view_config nice_view_custom
+    shield: Helix_R Nice_view_config nice_view_custom
     artifact-name: Helix_right_nice_view
 
 
