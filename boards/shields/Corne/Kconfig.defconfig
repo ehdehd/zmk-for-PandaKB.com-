@@ -1,20 +1,14 @@
-if SHIELD_CORNE_LEFT
+if SHIELD_CORNE_L
 
 config ZMK_KEYBOARD_NAME
 	default "Corne"
 
-config ZMK_SPLIT_BLE_ROLE_CENTRAL
+config ZMK_SPLIT_ROLE_CENTRAL
 	default y
 
 endif
 
-if SHIELD_CORNE_LEFT || SHIELD_CORNE_RIGHT
-
-config ZMK_SPLIT
-	default y
-
-endif
-if SHIELD_CORNE_LEFT || SHIELD_CORNE_RIGHT
+if SHIELD_CORNE_L || SHIELD_CORNE_R
 
 config ZMK_SPLIT
     default y
