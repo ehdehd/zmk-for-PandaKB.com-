@@ -27,7 +27,7 @@
     };
 
     behaviors {
-        track navigator: track navigatorr {
+        track_navigator: track_navigatorr {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&kp C_PREVIOUS>, <&kp C_NEXT>;
@@ -52,7 +52,7 @@
                  &kp LGUI &kp LALT &kp LCTRL &mo LOWER  &kp RET              &kp SPACE  &mo RAISE  &kp RCTRL &kp RALT  &kp RGUI
             >;
 
-            sensor-bindings = <&track navigator &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&track_navigator &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         lower_layer {
