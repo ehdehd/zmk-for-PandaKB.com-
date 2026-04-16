@@ -21,7 +21,8 @@ manifest:
       url-base: https://github.com/penguinchat
     - name: MickiusMousius
       url-base: https://github.com/MickiusMousius
-  
+    - name: englmaxi
+      url-base: https://github.com/englmaxi
   
   projects:
     - name: zmk
@@ -56,5 +57,8 @@ manifest:
     - name: zmk-oled-adapter
       remote: mctechnology17
       revision: main
+    - name: zmk-dongle-display
+      remote: englmaxi
+      revision: v0.3
   self:
     path: config
