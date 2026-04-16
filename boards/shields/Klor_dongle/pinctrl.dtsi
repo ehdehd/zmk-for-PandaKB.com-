@@ -69,3 +69,9 @@
 		color-mapping = <LED_COLOR_ID_GREEN LED_COLOR_ID_RED LED_COLOR_ID_BLUE>;
 	};
 };
+&pro_micro_i2c {
+    status = "okay";
+};
+&spi3 {
+    status = "disabled";
+};
