@@ -6,6 +6,7 @@
 
 #include "Klor_dongle.dtsi"
 #include <dt-bindings/led/led.h>
+#include "pinctrl.dtsi"
 &default_transform {
     col-offset = <6>;
 };
