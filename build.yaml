@@ -31,11 +31,11 @@ include:
     shield: Klor_dongle_central dongle_screen
     snippet: studio-rpc-usb-uart
     artifact-name: Klor_central_dongle
-  # dongle with oled from eyeslash 适配睫毛哥家的oled_dongle
-  - board: nice_nano_v2
-    shield: Klor_dongle_central eyeslash_dongle_config dongle_display
-    snippet: studio-rpc-usb-uart
-    artifact-name: Klor_central_dongle_eyeslash
+#  # dongle with oled from eyeslash 适配睫毛哥家的oled_dongle
+#  - board: nice_nano_v2
+#    shield: Klor_dongle_central eyeslash_dongle_config dongle_display
+#    snippet: studio-rpc-usb-uart
+#    artifact-name: Klor_central_dongle_eyeslash
   # peripheral with 0.96oled display(with nice_oled module) 适用于带0.96寸oled的Klor
   - board: nice_nano_v2
     shield: Klor_dongle_left 
