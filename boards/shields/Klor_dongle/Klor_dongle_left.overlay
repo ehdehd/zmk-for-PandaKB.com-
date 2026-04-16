@@ -7,6 +7,11 @@
 #include "Klor_dongle.dtsi"
 #include <dt-bindings/led/led.h>
 
+/{
+    chosen {
+        zephyr,display = &oled;
+    };
+};
 &kscan0 {
     compatible = "zmk,kscan-gpio-matrix";
     row-gpios
