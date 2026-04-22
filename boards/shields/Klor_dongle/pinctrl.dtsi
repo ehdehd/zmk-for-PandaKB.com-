@@ -1,4 +1,3 @@
-
 // oled,I2C
 &pinctrl {
        i2c0_default: i2c0_default {
