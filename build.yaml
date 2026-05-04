@@ -20,7 +20,7 @@ include:
 
 #Helix with dongle 带dongle的Helix
   # dongle with LCD display 带LCD显示的dongle
-  - board: nice_nano_v2
+  - board: seeeduino_xiao_ble
     shield: Helix_dongle_central dongle_screen
     snippet: studio-rpc-usb-uart
     artifact-name: Helix_central_dongle
