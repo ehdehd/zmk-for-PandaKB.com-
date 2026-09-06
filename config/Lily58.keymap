@@ -25,13 +25,13 @@ combos {
         combo_lbrc {
             timeout-ms = <50>;
             key-positions = <27 28>;
-            bindings = <&kp LBRC>;
+            bindings = <&kp LBKT>;
             layers = <0>;
         };
         combo_rbrc {
             timeout-ms = <100>;
             key-positions = <31 32>;
-            bindings = <&kp RBRC>;
+            bindings = <&kp RBKT>;
             layers = <0>;
         };
     };
