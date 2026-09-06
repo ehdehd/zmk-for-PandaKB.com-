@@ -19,6 +19,23 @@
             then-layer = <3>;
         };
     };
+
+combos {
+        compatible = "zmk,combos";
+        combo_lbrc {
+            timeout-ms = <50>;
+            key-positions = <28 29>;
+            bindings = <&kp LBRC>;
+            layers = <0>;
+        };
+        combo_rbrc {
+            timeout-ms = <100>;
+            key-positions = <32 33>;
+            bindings = <&kp RBRC>;
+            layers = <0>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
