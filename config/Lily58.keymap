@@ -43,7 +43,7 @@ combos {
         combo_test2 {
             timeout-ms = <100>;
             key-positions = <0 1>;
-            bindings = <&kp RBKT>;
+            bindings = <&kp LBKT>;
             layers = <0>;
         };
     };
