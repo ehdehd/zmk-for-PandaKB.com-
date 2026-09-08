@@ -40,6 +40,9 @@ combos {
         };
     };
 
+//&mt LSHIFT A
+//Parameter #1: The keycode to be sent when held (usually a modifier), e.g. LSHIFT
+//Parameter #2: The keycode to sent when used as a tap, e.g. A, B.
 behaviors {
         mt: mod_tap {
             compatible = "zmk,behavior-hold-tap";
@@ -52,6 +55,9 @@ behaviors {
         };
     };
 
+//&lt 1 A
+//Parameter: The layer number to enable while held, e.g. 1
+//Parameter: The keycode to send when tapped, e.g. A
 behaviors {
         lt: layer_tap {
             compatible = "zmk,behavior-hold-tap";
