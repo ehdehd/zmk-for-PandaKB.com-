@@ -56,7 +56,7 @@ combos {
             layers = <0>;
         };
         combo_rbrc {
-            timeout-ms = <150>;
+            timeout-ms = <159>;
             key-positions = <50 51 47>;
             bindings = <&kp RBRC>;
             layers = <0>;
@@ -68,14 +68,14 @@ behaviors {
         td0: tap_dance_0 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <150>;
+            tapping-term-ms = <300>;
             bindings = <&kp COMMA>, <&kp SEMICOLON>;
         };
 
         td1: tap_dance_1 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <150>;
+            tapping-term-ms = <300>;
             bindings = <&kp DOT>, <&kp COLON>;
         };
 };
