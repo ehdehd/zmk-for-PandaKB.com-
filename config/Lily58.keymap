@@ -25,16 +25,40 @@ conditional_layers {
 
 combos {
         compatible = "zmk,combos";
-        combo_lbrc {
-            timeout-ms = <50>;
-            key-positions = <27 28>;
+        combo_lpar {
+            timeout-ms = <150>;
+            key-positions = <50 46>;
+            bindings = <&kp LPAR>;
+            layers = <0>;
+        };
+        combo_rpar {
+            timeout-ms = <150>;
+            key-positions = <50 47>;
+            bindings = <&kp RPAR>;
+            layers = <0>;
+        };
+        combo_lbkt {
+            timeout-ms = <150>;
+            key-positions = <51 46>;
             bindings = <&kp LBKT>;
             layers = <0>;
         };
-        combo_rbrc {
-            timeout-ms = <100>;
-            key-positions = <31 32>;
+        combo_rbkt {
+            timeout-ms = <150>;
+            key-positions = <51 47>;
             bindings = <&kp RBKT>;
+            layers = <0>;
+        };
+        combo_lbrc {
+            timeout-ms = <150>;
+            key-positions = <50 51 46>;
+            bindings = <&kp LBRC>;
+            layers = <0>;
+        };
+        combo_rbrc {
+            timeout-ms = <150>;
+            key-positions = <50 51 47>;
+            bindings = <&kp RBRC>;
             layers = <0>;
         };
 };
@@ -44,14 +68,14 @@ behaviors {
         td0: tap_dance_0 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <150>;
             bindings = <&kp COMMA>, <&kp SEMICOLON>;
         };
 
         td1: tap_dance_1 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <150>;
             bindings = <&kp DOT>, <&kp COLON>;
         };
 };
@@ -65,7 +89,7 @@ behaviors {
 
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <200>;
+            tapping-term-ms = <150>;
             bindings = <&kp>, <&kp>;
             display-name = "Mod-Tap";
         };
@@ -79,7 +103,7 @@ behaviors {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <200>;
+            tapping-term-ms = <150>;
             bindings = <&mo>, <&kp>;
             display-name = "Layer-Tap";
         };
@@ -99,7 +123,7 @@ keymap {
      &kp RET      &kp A        &kp S        &kp D        &kp F        &kp G                                           &kp H        &kp J        &kp K        &kp L        &kp SEMI     &kp RET
 // ├─────36─────┼─────37─────┼─────38─────┼─────39─────┼─────40─────┼─────41─────┼─────42─────┤        ├─────43─────┼─────44─────┼─────45─────┼─────46─────┼─────47─────┼─────48─────┼─────49─────┤
      &kp LSHFT    &kp Z        &kp X        &kp C        &kp V        &kp B        &kp LGUI              &kp B        &kp N        &kp M        &td0         &td1         &kp FSLH     &kp RSHFT
-// ├────────────┼────────────┼────────────┼────────────┼────────────┼────────────┼────────────┤        ├────────────┼────────────┼────────────┼────────────┼────────────┼────────────┼────────────┤
+// ├────────────┼────────────┼────────────┼─────50─────┼─────51─────┼─────52─────┼─────53─────┤        ├─────54─────┼─────55─────┼─────56─────┼─────57─────┼────────────┼────────────┼────────────┤
                                             &kp LCTRL    &kp LALT     &mo 1        &kp SPACE             &kp SPACE    &mo 2        &kp RALT     &kp RCTRL
 // ╰────────────┴────────────┴────────────┴────────────┴────────────┴────────────┴────────────╯        ╰────────────┴────────────┴────────────┴────────────┴────────────┴────────────┴────────────╯       
                 >;
