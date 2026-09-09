@@ -25,7 +25,6 @@ conditional_layers {
 
 combos {
         compatible = "zmk,combos";
-        
         combo_lbrc {
             timeout-ms = <50>;
             key-positions = <27 28>;
@@ -38,7 +37,24 @@ combos {
             bindings = <&kp RBKT>;
             layers = <0>;
         };
-    };
+};
+
+// TAP DANCE
+behaviors {
+        td0: tap_dance_0 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp COMMA>, <&kp SEMICOLON>;
+        };
+
+        td1: tap_dance_1 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp DOT>, <&kp COLON>;
+        };
+};
 
 //&mt LSHIFT A
 //Parameter #1: The keycode to be sent when held (usually a modifier), e.g. LSHIFT
@@ -82,7 +98,7 @@ keymap {
 // ├─────24─────┼─────25─────┼─────26─────┼─────27─────┼─────28─────┼─────29─────┼────────────┤        ├────────────┼─────30─────┼─────31─────┼─────32─────┼─────33─────┼─────34─────┼─────35─────┤
      &kp RET      &kp A        &kp S        &kp D        &kp F        &kp G                                           &kp H        &kp J        &kp K        &kp L        &kp SEMI     &kp RET
 // ├─────36─────┼─────37─────┼─────38─────┼─────39─────┼─────40─────┼─────41─────┼─────42─────┤        ├─────43─────┼─────44─────┼─────45─────┼─────46─────┼─────47─────┼─────48─────┼─────49─────┤
-     &kp LSHFT    &kp Z        &kp X        &kp C        &kp V        &kp B        &kp LGUI              &kp B        &kp N        &kp M        &kp COMMA    &kp DOT      &kp FSLH     &kp RSHFT
+     &kp LSHFT    &kp Z        &kp X        &kp C        &kp V        &kp B        &kp LGUI              &kp B        &kp N        &kp M        &td0         &td1         &kp FSLH     &kp RSHFT
 // ├────────────┼────────────┼────────────┼────────────┼────────────┼────────────┼────────────┤        ├────────────┼────────────┼────────────┼────────────┼────────────┼────────────┼────────────┤
                                             &kp LCTRL    &kp LALT     &mo 1        &kp SPACE             &kp SPACE    &mo 2        &kp RALT     &kp RCTRL
 // ╰────────────┴────────────┴────────────┴────────────┴────────────┴────────────┴────────────╯        ╰────────────┴────────────┴────────────┴────────────┴────────────┴────────────┴────────────╯       
@@ -114,7 +130,7 @@ keymap {
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &kp PLUS      &trans        &trans        &trans        &trans        &trans                                             &trans        &trans        &trans        &trans        &kp SQT        &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &trans        &trans        &trans        &trans        &trans        &trans        &kp CAPS                 &trans        &trans        &trans        &trans        &trans        &trans        &trans
+     &trans        &trans        &trans        &trans        &trans        &trans        &kp CAPS               &trans        &trans        &trans        &trans        &trans        &trans        &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                                                &trans        &trans        &trans        &trans                 &trans        &trans        &trans        &trans
 // ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯        ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
