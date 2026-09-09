@@ -16,60 +16,61 @@
 #define NUM 1
 #define NAV 2
 #define CTL 3
+#define ALT 4
+#deinfe SHT 5
 
 /{
 
 // Activate ADJUST layer by pressing raise and lower
 conditional_layers {
         compatible = "zmk,conditional-layers";
-        
         adjust_layer {
-            if-layers = <NUM NAV>;
-            then-layer = <CTL>;
+            if-layers = <CTL ALT>;
+            then-layer = <SHT>;
         };
 };
 
 combos {
         compatible = "zmk,combos";
-        combo_lpar {
-            timeout-ms = <200>;
-            key-positions = <50 46>;
-            bindings = <&kp LPAR>;
-            layers = <0>;
-        };
-        combo_rpar {
-            timeout-ms = <200>;
-            key-positions = <50 47>;
-            bindings = <&kp RPAR>;
-            layers = <0>;
-        };
-        combo_lbkt {
-            timeout-ms = <200>;
-            key-positions = <51 46>;
-            bindings = <&kp LBKT>;
-            layers = <0>;
-        };
-        combo_rbkt {
-            timeout-ms = <200>;
-            key-positions = <51 47>;
-            bindings = <&kp RBKT>;
-            layers = <0>;
-        };
-        combo_lbrc {
-            timeout-ms = <200>;
-            key-positions = <50 51 46>;
-            bindings = <&kp LBRC>;
-            layers = <0>;
-        };
-        combo_rbrc {
-            timeout-ms = <200>;
-            key-positions = <50 51 47>;
-            bindings = <&kp RBRC>;
-            layers = <0>;
-        };
+//        combo_lpar {
+//            timeout-ms = <200>;
+//            key-positions = <50 46>;
+//            bindings = <&kp LPAR>;
+//            layers = <0>;
+//        };
+//        combo_rpar {
+//            timeout-ms = <200>;
+//           key-positions = <50 47>;
+//            bindings = <&kp RPAR>;
+//            layers = <0>;
+//        };
+//        combo_lbkt {
+//            timeout-ms = <200>;
+//            key-positions = <51 46>;
+//            bindings = <&kp LBKT>;
+//            layers = <0>;
+//        };
+//        combo_rbkt {
+//            timeout-ms = <200>;
+//            key-positions = <51 47>;
+//            bindings = <&kp RBKT>;
+//            layers = <0>;
+//        };
+//        combo_lbrc {
+//            timeout-ms = <200>;
+//            key-positions = <50 51 46>;
+//            bindings = <&kp LBRC>;
+//            layers = <0>;
+//        };
+//        combo_rbrc {
+//            timeout-ms = <200>;
+//            key-positions = <50 51 47>;
+//            bindings = <&kp RBRC>;
+//            layers = <0>;
+//        };
+
 };
 
-// TAP DANCE
 behaviors {
         td0: tap_dance_0 {
             compatible = "zmk,behavior-tap-dance";
@@ -130,7 +131,7 @@ keymap {
 // ├─────36─────┼─────37─────┼─────38─────┼─────39─────┼─────40─────┼─────41─────┼─────42─────┤        ├─────43─────┼─────44─────┼─────45─────┼─────46─────┼─────47─────┼─────48─────┼─────49─────┤
      &kp LSHFT    &kp Z        &kp X        &kp C        &kp V        &kp B        &kp LGUI              &kp B        &kp N        &kp M        &td0         &td1         &kp FSLH     &kp RSHFT
 // ├────────────┼────────────┼────────────┼─────50─────┼─────51─────┼─────52─────┼─────53─────┤        ├─────54─────┼─────55─────┼─────56─────┼─────57─────┼────────────┼────────────┼────────────┤
-                                            &kp LCTRL    &kp LALT     &mo NUM        &kp SPACE             &kp SPACE    &mo NAV        &mt CAPS RALT     &kp RCTRL
+                                            &lt CTL LCTRL &lt ALT LALT     &mo NUM        &kp SPACE             &kp SPACE    &mo NAV        &mt CAPS RALT     &kp RCTRL
 // ╰────────────┴────────────┴────────────┴────────────┴────────────┴────────────┴────────────╯        ╰────────────┴────────────┴────────────┴────────────┴────────────┴────────────┴────────────╯       
                 >;
 
@@ -199,6 +200,38 @@ keymap {
             >;
         };
         
+        alt_layer {
+            bindings = <
+// ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮        ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+    &bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                                        &trans        &trans        &trans        &trans        &trans        &trans
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+     &trans        &trans        &trans        &trans        &trans        &trans                                             &kp PG_UP     &kp HOME      &kp UP        &kp END       &trans        &trans
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+     &trans        &trans        &trans        &trans        &trans        &trans                                             &kp PG_DN     &kp LEFT      &kp DOWN      &kp RIGHT     &trans        &trans
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+     &trans        &trans        &trans        &trans        &trans        &trans        &trans                 &trans        &trans        &trans        &kp LBKT      &kp RBKT    &trans        &trans
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+                                               &trans        &trans        &trans        &trans                 &trans        &trans        &trans        &trans
+// ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯        ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
+            >;
+        };
+
+        sht_layer {
+            bindings = <
+// ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮        ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+    &bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                                        &trans        &trans        &trans        &trans        &trans        &trans
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+     &trans        &trans        &trans        &trans        &trans        &trans                                             &kp PG_UP     &kp HOME      &kp UP        &kp END       &trans        &trans
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+     &trans        &trans        &trans        &trans        &trans        &trans                                             &kp PG_DN     &kp LEFT      &kp DOWN      &kp RIGHT     &trans        &trans
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+     &trans        &trans        &trans        &trans        &trans        &trans        &trans                 &trans        &trans        &trans        &kp LBRC      &kp RBRC    &trans        &trans
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+                                               &trans        &trans        &trans        &trans                 &trans        &trans        &trans        &trans
+// ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯        ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
+            >;
+        };
+
         extra1 { status = "reserved"; };
 
         extra2 { status = "reserved"; };
