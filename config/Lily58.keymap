@@ -17,7 +17,7 @@
 #define NAV 2
 #define CTL 3
 #define ALT 4
-#deinfe SHT 5
+#define SHT 5
 
 /{
 
