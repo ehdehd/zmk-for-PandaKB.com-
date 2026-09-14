@@ -18,6 +18,7 @@
 #define CTL 3
 #define ALT 4
 #define SHT 5
+#define TIMEOUT 200
 
 /{
 
@@ -33,37 +34,37 @@ conditional_layers {
 combos {
         compatible = "zmk,combos";
 //        combo_lpar {
-//            timeout-ms = <200>;
+//            timeout-ms = <TIMEOUT>;
 //            key-positions = <50 46>;
 //            bindings = <&kp LPAR>;
 //            layers = <0>;
 //        };
 //        combo_rpar {
-//            timeout-ms = <200>;
+//            timeout-ms = <TIMEOUT>;
 //           key-positions = <50 47>;
 //            bindings = <&kp RPAR>;
 //            layers = <0>;
 //        };
 //        combo_lbkt {
-//            timeout-ms = <200>;
+//            timeout-ms = <TIMEOUT>;
 //            key-positions = <51 46>;
 //            bindings = <&kp LBKT>;
 //            layers = <0>;
 //        };
 //        combo_rbkt {
-//            timeout-ms = <200>;
+//            timeout-ms = <TIMEOUT>;
 //            key-positions = <51 47>;
 //            bindings = <&kp RBKT>;
 //            layers = <0>;
 //        };
 //        combo_lbrc {
-//            timeout-ms = <200>;
+//            timeout-ms = <TIMEOUT>;
 //            key-positions = <50 51 46>;
 //            bindings = <&kp LBRC>;
 //            layers = <0>;
 //        };
 //        combo_rbrc {
-//            timeout-ms = <200>;
+//            timeout-ms = <TIMEOUT>;
 //            key-positions = <50 51 47>;
 //            bindings = <&kp RBRC>;
 //            layers = <0>;
@@ -75,14 +76,14 @@ behaviors {
         td0: tap_dance_0 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <TIMEOUT>;
             bindings = <&kp COMMA>, <&kp SEMICOLON>;
         };
 
         td1: tap_dance_1 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <TIMEOUT>;
             bindings = <&kp DOT>, <&kp COLON>;
         };
 };
@@ -96,7 +97,7 @@ behaviors {
 
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <150>;
+            tapping-term-ms = <TIMEOUT>;
             bindings = <&kp>, <&kp>;
             display-name = "Mod-Tap";
         };
@@ -110,7 +111,7 @@ behaviors {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <150>;
+            tapping-term-ms = <TIMEOUT>;
             bindings = <&kp>, <&mo>;
             display-name = "Layer-Tap";
         };
