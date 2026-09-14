@@ -109,9 +109,9 @@ behaviors {
         lt: layer_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "hold-preferred";
+            flavor = "balanced";
             tapping-term-ms = <150>;
-            bindings = <&mo>, <&kp>;
+            bindings = <&kp>, <&mo>;
             display-name = "Layer-Tap";
         };
 };
