@@ -122,13 +122,13 @@ behaviors {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp COMMA>, <&kp LPAR>;
-            mods = <(MOD_LCTRL|MOD_RCTRL)>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
         };
         ctrldot: ctrl_dot {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp DOT>, <&kp RPAR>;
-            mods = <(MOD_LCTRL|MOD_RCTRL)>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
         };
     };
 
