@@ -98,7 +98,7 @@ behaviors {
             flavor = "tap-preferred";             // 빠른 탭 입력을 우선 처리
             tapping-term-ms = <200>;             // 홀드 판정 시간 (ms)
             quick-tap-ms = <0>;
-            bindings = <&kp QUESTION>, <&comma_morph>; // <Hold 동작, Tap 동작>
+            bindings = <&kp QUESTION &comma_morph>; // <Hold 동작, Tap 동작>
         };
 
         // 4. Tap-Dance: 1번 누름/홀드는 comma_tap_hold, 2번 연속 탭은 ;
