@@ -130,6 +130,18 @@ behaviors {
             bindings = <&kp DOT>, <&kp RPAR>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
+        altcomma: alt_comma {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LBKT>, <&kp COMMA>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+        };
+        altdot: alt_dot {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp DOT>, <&kp RBKT>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+        };
     };
 
 /*
