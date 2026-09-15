@@ -139,6 +139,16 @@ behaviors {
         };
     };
 ***********************************************************************************/
+
+macros {
+        // 1. ? 입력을 위한 인자 0개짜리 매크로
+        qmark_macro: qmark_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp QMARK>;
+        };
+    };
+
 behaviors {
         // 1. Alt 체크 Mod-Morph: Alt 조합 시 [ 입력
         comma_alt_morph: comma_alt_morph {
@@ -171,7 +181,7 @@ behaviors {
             flavor = "tap-preferred";             // 빠른 탭 입력을 우선 처리
             tapping-term-ms = <200>;             // 홀드 판정 시간 (ms)
             quick-tap-ms = <0>;
-            bindings = <&kp QMARK>, <&td_comma>; // <Hold 동작, Tap 동작>
+            bindings = <&qmark_macro>, <&td_comma>; // <Hold 동작, Tap 동작>
         };
     };
 
