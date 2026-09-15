@@ -177,11 +177,11 @@ behaviors {
         // 3. Tap-Hold: Tap하면 Mod-Morph 체인 실행, Hold하면 ? 입력
         comma_tap_hold: comma_tap_hold {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>;
+            #binding-cells = <2>;
             flavor = "tap-preferred";             // 빠른 탭 입력을 우선 처리
             tapping-term-ms = <200>;             // 홀드 판정 시간 (ms)
             quick-tap-ms = <0>;
-            bindings = <&qmark_macro>, <&td_comma>; // <Hold 동작, Tap 동작>
+            bindings = <&kp>, <&td_comma>; // <Hold 동작, Tap 동작>
         };
     };
 
@@ -228,7 +228,7 @@ keymap {
 // ├─────24─────┼─────25─────┼─────26─────┼─────27─────┼─────28─────┼─────29─────┼────────────┤        ├────────────┼─────30─────┼─────31─────┼─────32─────┼─────33─────┼─────34─────┼─────35─────┤
      &kp RET      &kp A        &kp S        &kp D        &kp F        &kp G                                           &kp H        &kp J        &kp K        &kp L        &kp SEMI     &kp RET
 // ├─────36─────┼─────37─────┼─────38─────┼─────39─────┼─────40─────┼─────41─────┼─────42─────┤        ├─────43─────┼─────44─────┼─────45─────┼─────46─────┼─────47─────┼─────48─────┼─────49─────┤
-     &kp LSHFT    &kp Z        &kp X        &kp C        &kp V        &kp B        &kp LGUI              &kp B        &kp N        &kp M        &comma_tap_hold    &kp DOT      &kp FSLH     &kp RSHFT
+     &kp LSHFT    &kp Z        &kp X        &kp C        &kp V        &kp B        &kp LGUI              &kp B        &kp N        &kp M        &comma_tap_hold     &kp DOT      &kp FSLH     &kp RSHFT
 // ├────────────┼────────────┼────────────┼─────50─────┼─────51─────┼─────52─────┼─────53─────┤        ├─────54─────┼─────55─────┼─────56─────┼─────57─────┼────────────┼────────────┼────────────┤
                                             &kp LCTRL    &kp LALT     &mo NUM      &kp SPACE             &kp SPACE    &mo NAV      &mt CAPS RALT &kp RCTRL
 // ╰────────────┴────────────┴────────────┴────────────┴────────────┴────────────┴────────────╯        ╰────────────┴────────────┴────────────┴────────────┴────────────┴────────────┴────────────╯       
