@@ -33,59 +33,45 @@ conditional_layers {
 
 combos {
         compatible = "zmk,combos";
-//        combo_lpar {
-//            timeout-ms = <TIMEOUT>;
-//            key-positions = <50 46>;
-//            bindings = <&kp LPAR>;
-//            layers = <0>;
-//        };
-//        combo_rpar {
-//            timeout-ms = <TIMEOUT>;
-//           key-positions = <50 47>;
-//            bindings = <&kp RPAR>;
-//            layers = <0>;
-//        };
-//        combo_lbkt {
-//            timeout-ms = <TIMEOUT>;
-//            key-positions = <51 46>;
-//            bindings = <&kp LBKT>;
-//            layers = <0>;
-//        };
-//        combo_rbkt {
-//            timeout-ms = <TIMEOUT>;
-//            key-positions = <51 47>;
-//            bindings = <&kp RBKT>;
-//            layers = <0>;
-//        };
-//        combo_lbrc {
-//            timeout-ms = <TIMEOUT>;
-//            key-positions = <50 51 46>;
-//            bindings = <&kp LBRC>;
-//            layers = <0>;
-//        };
-//        combo_rbrc {
-//            timeout-ms = <TIMEOUT>;
-//            key-positions = <50 51 47>;
-//            bindings = <&kp RBRC>;
-//            layers = <0>;
-//        };
-
-};
-
-behaviors {
-        td0: tap_dance_0 {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <TIMEOUT>;
-            bindings = <&kp COMMA>, <&kp SEMICOLON>;
+/*
+        combo_lpar {
+            timeout-ms = <TIMEOUT>;
+            key-positions = <50 46>;
+            bindings = <&kp LPAR>;
+            layers = <0>;
         };
-
-        td1: tap_dance_1 {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <TIMEOUT>;
-            bindings = <&kp DOT>, <&kp COLON>;
+        combo_rpar {
+            timeout-ms = <TIMEOUT>;
+           key-positions = <50 47>;
+            bindings = <&kp RPAR>;
+            layers = <0>;
         };
+        combo_lbkt {
+            timeout-ms = <TIMEOUT>;
+            key-positions = <51 46>;
+            bindings = <&kp LBKT>;
+            layers = <0>;
+        };
+        combo_rbkt {
+            timeout-ms = <TIMEOUT>;
+            key-positions = <51 47>;
+            bindings = <&kp RBKT>;
+            layers = <0>;
+        };
+        combo_lbrc {
+            timeout-ms = <TIMEOUT>;
+            key-positions = <50 51 46>;
+            bindings = <&kp LBRC>;
+            layers = <0>;
+        };
+        combo_rbrc {
+            timeout-ms = <TIMEOUT>;
+            key-positions = <50 51 47>;
+            bindings = <&kp RBRC>;
+            layers = <0>;
+        };
+*/
+
 };
 
 behaviors {
@@ -142,59 +128,6 @@ behaviors {
             display-name = "Layer-Tap";
         };
     };
-
-behaviors {
-        ctrlcomma: ctrl_comma {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp COMMA>, <&kp LPAR>;
-            mods = <(MOD_LCTL|MOD_RCTL)>;
-        };
-        ctrldot: ctrl_dot {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp DOT>, <&kp RPAR>;
-            mods = <(MOD_LCTL|MOD_RCTL)>;
-        };
-        altcomma: alt_comma {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp COMMA>, <&kp LBKT>;
-            mods = <(MOD_LALT|MOD_RALT)>;
-        };
-        altdot: alt_dot {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp DOT>, <&kp RBKT>;
-            mods = <(MOD_LALT|MOD_RALT)>;
-        };
-    };
-
-/*
-behaviors {
-        // 1. 극한의 탭댄스 정의
-        super_tap_dance: super_tap_dance {
-            compatible = "zmk,behavior-tap-dance";
-            label = "SUPER_TAP_DANCE";
-            #binding-cells = <0>;
-            tapping-term-ms = <250>; // 탭 인식을 위한 대기 시간 (ms)
-            bindings = 
-                <&kp A>,              // 1번 탭: 'A' 입력
-                <&td_hold_tap>,        // 2번 탭: 아래 정의한 커스텀 홀드-탭 발동!
-                <&macro_screenshot>;   // 3번 탭: 화면 캡처 매크로 실행
-        };
-
-        // 2. 탭댄스 내부에 들어갈 홀드-탭(Hold-Tap) 정의
-        td_hold_tap: td_hold_tap {
-            compatible = "zmk,behavior-hold-tap";
-            label = "TD_HOLD_TAP";
-            #binding-cells = <2>;
-            flavor = "tap-preferred"; // 탭을 조금 더 우선시하는 성향
-            tapping-term-ms = <200>;
-            bindings = <&mo 1>, <&kp B>; // 누르고 있으면 1번 레이어, 떼면 'B' 입력
-        };
-    };
-*/
 
 
 keymap {
