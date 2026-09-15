@@ -117,6 +117,47 @@ behaviors {
         };
     };
 
+behaviors {
+        ctrlcomma: ctrl_comma {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp COMMA>, <&kp LPAR>;
+            mods = <(MOD_LCTRL|MOD_RCTRL)>;
+        };
+        ctrldot: ctrl_dot {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp DOT>, <&kp RPAR>;
+            mods = <(MOD_LCTRL|MOD_RCTRL)>;
+        };
+    };
+
+/*
+behaviors {
+        // 1. 극한의 탭댄스 정의
+        super_tap_dance: super_tap_dance {
+            compatible = "zmk,behavior-tap-dance";
+            label = "SUPER_TAP_DANCE";
+            #binding-cells = <0>;
+            tapping-term-ms = <250>; // 탭 인식을 위한 대기 시간 (ms)
+            bindings = 
+                <&kp A>,              // 1번 탭: 'A' 입력
+                <&td_hold_tap>,        // 2번 탭: 아래 정의한 커스텀 홀드-탭 발동!
+                <&macro_screenshot>;   // 3번 탭: 화면 캡처 매크로 실행
+        };
+
+        // 2. 탭댄스 내부에 들어갈 홀드-탭(Hold-Tap) 정의
+        td_hold_tap: td_hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "TD_HOLD_TAP";
+            #binding-cells = <2>;
+            flavor = "tap-preferred"; // 탭을 조금 더 우선시하는 성향
+            tapping-term-ms = <200>;
+            bindings = <&mo 1>, <&kp B>; // 누르고 있으면 1번 레이어, 떼면 'B' 입력
+        };
+    };
+*/
+
 
 keymap {
         compatible = "zmk,keymap";
