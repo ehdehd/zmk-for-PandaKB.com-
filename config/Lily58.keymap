@@ -89,19 +89,27 @@ behaviors {
 };
 
 behaviors {
-        // 1. Mod-Morph 정의: Ctrl이 눌린 상태에서 ,를 누르면 ( 입력
+        // 1. Alt 체크 Mod-Morph: Alt가 눌려있으면 [, 안 눌려있으면 기본 ,
+        comma_alt_morph: comma_alt_morph {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp COMMA>, <&kp LBKT>; // 기본: , / Alt 적용 시: [
+            mods = <(MOD_LALT|MOD_RALT)>;        // Left/Right Alt 감지
+        };
+
+        // 2. Ctrl 체크 Mod-Morph: Ctrl이 눌려있으면 (, 안 눌려있으면 comma_alt_morph 실행
         comma_morph: comma_morph {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp COMMA>, <&kp LPAR>; // 기본은 , / Mod 적용 시 (
-            mods = <(MOD_LCTL|MOD_RCTL)>;        // Left Ctrl 또는 Right Ctrl 감지
+            bindings = <&comma_alt_morph>, <&kp LPAR>; // 기본: Alt체크 / Ctrl 적용 시: (
+            mods = <(MOD_LCTL|MOD_RCTL)>;              // Left/Right Ctrl 감지
         };
 
-        // 2. Tap-Dance 정의: 1번 누르면 comma_morph 호출, 2번 누르면 ; 입력
+        // 3. Tap-Dance: 1번 누르면 comma_morph(Ctrl/Alt 체인), 2번 누르면 ;
         td_comma: tap_dance_comma {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;             // Tap-Dance 판정 시간 (필요시 조절)
+            tapping-term-ms = <200>;
             bindings = <&comma_morph>, <&kp SEMI>;
         };
     };
