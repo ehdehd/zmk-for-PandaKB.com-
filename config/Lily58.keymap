@@ -88,6 +88,24 @@ behaviors {
         };
 };
 
+behaviors {
+        // 1. Mod-Morph 정의: Ctrl이 눌린 상태에서 ,를 누르면 ( 입력
+        comma_morph: comma_morph {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp COMMA>, <&kp LPAR>; // 기본은 , / Mod 적용 시 (
+            mods = <(MOD_LCTL|MOD_RCTL)>;        // Left Ctrl 또는 Right Ctrl 감지
+        };
+
+        // 2. Tap-Dance 정의: 1번 누르면 comma_morph 호출, 2번 누르면 ; 입력
+        td_comma: tap_dance_comma {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;             // Tap-Dance 판정 시간 (필요시 조절)
+            bindings = <&comma_morph>, <&kp SEMI>;
+        };
+    };
+
 //&mt LSHIFT A
 //Parameter #1: The keycode to be sent when held (usually a modifier), e.g. LSHIFT
 //Parameter #2: The keycode to sent when used as a tap, e.g. A, B.
@@ -183,7 +201,7 @@ keymap {
 // ├─────24─────┼─────25─────┼─────26─────┼─────27─────┼─────28─────┼─────29─────┼────────────┤        ├────────────┼─────30─────┼─────31─────┼─────32─────┼─────33─────┼─────34─────┼─────35─────┤
      &kp RET      &kp A        &kp S        &kp D        &kp F        &kp G                                           &kp H        &kp J        &kp K        &kp L        &kp SEMI     &kp RET
 // ├─────36─────┼─────37─────┼─────38─────┼─────39─────┼─────40─────┼─────41─────┼─────42─────┤        ├─────43─────┼─────44─────┼─────45─────┼─────46─────┼─────47─────┼─────48─────┼─────49─────┤
-     &kp LSHFT    &kp Z        &kp X        &kp C        &kp V        &kp B        &kp LGUI              &kp B        &kp N        &kp M        &ctrlcomma    &kp DOT      &kp FSLH     &kp RSHFT
+     &kp LSHFT    &kp Z        &kp X        &kp C        &kp V        &kp B        &kp LGUI              &kp B        &kp N        &kp M        &td_comma    &kp DOT      &kp FSLH     &kp RSHFT
 // ├────────────┼────────────┼────────────┼─────50─────┼─────51─────┼─────52─────┼─────53─────┤        ├─────54─────┼─────55─────┼─────56─────┼─────57─────┼────────────┼────────────┼────────────┤
                                             &kp LCTRL    &kp LALT     &mo NUM      &kp SPACE             &kp SPACE    &mo NAV      &mt CAPS RALT &kp RCTRL
 // ╰────────────┴────────────┴────────────┴────────────┴────────────┴────────────┴────────────╯        ╰────────────┴────────────┴────────────┴────────────┴────────────┴────────────┴────────────╯       
