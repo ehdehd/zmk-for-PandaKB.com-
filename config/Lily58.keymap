@@ -74,33 +74,7 @@ combos {
 
 };
 
-/* hold 없이는 성공함
-behaviors {
-        // 1. Alt 체크 Mod-Morph: Alt가 눌려있으면 [, 안 눌려있으면 기본 ,
-        comma_alt_morph: comma_alt_morph {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp COMMA>, <&kp LBKT>; // 기본: , / Alt 적용 시: [
-            mods = <(MOD_LALT|MOD_RALT)>;        // Left/Right Alt 감지
-        };
 
-        // 2. Ctrl 체크 Mod-Morph: Ctrl이 눌려있으면 (, 안 눌려있으면 comma_alt_morph 실행
-        comma_morph: comma_morph {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&comma_alt_morph>, <&kp LPAR>; // 기본: Alt체크 / Ctrl 적용 시: (
-            mods = <(MOD_LCTL|MOD_RCTL)>;              // Left/Right Ctrl 감지
-        };
-
-        // 3. Tap-Dance: 1번 누르면 comma_morph(Ctrl/Alt 체인), 2번 누르면 ;
-        td_comma: tap_dance_comma {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&comma_morph>, <&kp SEMI>;
-        };
-    };
-*/
 
 /***********************************************************************************
 behaviors {
@@ -138,7 +112,7 @@ behaviors {
             bindings = <&comma_tap_hold>, <&kp SEMI>;
         };
     };
-***********************************************************************************/
+
 
 macros {
         // 1. ? 입력을 위한 인자 0개짜리 매크로
@@ -185,11 +159,63 @@ behaviors {
         };
     };
 
+behaviors {
+        // 1. 극한의 탭댄스 정의
+        super_tap_dance: super_tap_dance {
+            compatible = "zmk,behavior-tap-dance";
+            label = "SUPER_TAP_DANCE";
+            #binding-cells = <0>;
+            tapping-term-ms = <250>; // 탭 인식을 위한 대기 시간 (ms)
+            bindings = 
+                <&kp A>,              // 1번 탭: 'A' 입력
+                <&td_hold_tap>,        // 2번 탭: 아래 정의한 커스텀 홀드-탭 발동!
+                <&macro_screenshot>;   // 3번 탭: 화면 캡처 매크로 실행
+        };
+
+        // 2. 탭댄스 내부에 들어갈 홀드-탭(Hold-Tap) 정의
+        td_hold_tap: td_hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "TD_HOLD_TAP";
+            #binding-cells = <2>;
+            flavor = "tap-preferred"; // 탭을 조금 더 우선시하는 성향
+            tapping-term-ms = <200>;
+            bindings = <&mo 1>, <&kp B>; // 누르고 있으면 1번 레이어, 떼면 'B' 입력
+        };
+    };
+
+***********************************************************************************/
+
+
+// hold 없이는 성공함
+behaviors {
+        // 1. Alt 체크 Mod-Morph: Alt가 눌려있으면 [, 안 눌려있으면 기본 ,
+        comma_alt_morph: comma_alt_morph {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp COMMA>, <&kp LBKT>; // 기본: , / Alt 적용 시: [
+            mods = <(MOD_LALT|MOD_RALT)>;        // Left/Right Alt 감지
+        };
+
+        // 2. Ctrl 체크 Mod-Morph: Ctrl이 눌려있으면 (, 안 눌려있으면 comma_alt_morph 실행
+        comma_morph: comma_morph {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&comma_alt_morph>, <&kp LPAR>; // 기본: Alt체크 / Ctrl 적용 시: (
+            mods = <(MOD_LCTL|MOD_RCTL)>;              // Left/Right Ctrl 감지
+        };
+
+        // 3. Tap-Dance: 1번 누르면 comma_morph(Ctrl/Alt 체인), 2번 누르면 ;
+        td_comma: tap_dance_comma {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&comma_morph>, <&kp SEMI>;
+        };
 
 //&mt LSHIFT A
 //Parameter #1: The keycode to be sent when held (usually a modifier), e.g. LSHIFT
 //Parameter #2: The keycode to sent when used as a tap, e.g. A, B.
-behaviors {
+
         mt: mod_tap {
             compatible = "zmk,behavior-hold-tap";
 
@@ -199,12 +225,10 @@ behaviors {
             bindings = <&kp>, <&kp>;
             display-name = "Mod-Tap";
         };
-    };
 
 //&lt 1 A
 //Parameter: The layer number to enable while held, e.g. 1
 //Parameter: The keycode to send when tapped, e.g. A
-behaviors {
         lt: layer_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -213,7 +237,7 @@ behaviors {
             bindings = <&mo>, <&kp>;
             display-name = "Layer-Tap";
         };
-    };
+};
 
 
 keymap {
