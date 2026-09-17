@@ -189,7 +189,7 @@ behaviors {
 // hold 없이는 성공함
 behaviors {
         // 1. Alt 체크 Mod-Morph: Alt가 눌려있으면 [, 안 눌려있으면 기본 ,
-        comma_alt_morph: comma_alt_morph {
+        morph_alt_comma: morph_alt_comma {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp COMMA>, <&kp LBKT>; // 기본: , / Alt 적용 시: [
@@ -197,10 +197,10 @@ behaviors {
         };
 
         // 2. Ctrl 체크 Mod-Morph: Ctrl이 눌려있으면 (, 안 눌려있으면 comma_alt_morph 실행
-        comma_morph: comma_morph {
+        morph_ctrl_comma: comma_morph {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&comma_alt_morph>, <&kp LPAR>; // 기본: Alt체크 / Ctrl 적용 시: (
+            bindings = <&morph_alt_comma>, <&kp LPAR>; // 기본: Alt체크 / Ctrl 적용 시: (
             mods = <(MOD_LCTL|MOD_RCTL)>;              // Left/Right Ctrl 감지
         };
 
@@ -209,8 +209,33 @@ behaviors {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&comma_morph>, <&kp SEMI>;
+            bindings = <&morph_ctrl_comma>, <&kp SEMI>;
         };
+
+        // 1. Alt 체크 Mod-Morph: Alt가 눌려있으면 [, 안 눌려있으면 기본 ,
+        morph_alt_dot: morph_alt_dot {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp DOT>, <&kp RBKT>; // 기본: , / Alt 적용 시: [
+            mods = <(MOD_LALT|MOD_RALT)>;        // Left/Right Alt 감지
+        };
+
+        // 2. Ctrl 체크 Mod-Morph: Ctrl이 눌려있으면 (, 안 눌려있으면 comma_alt_morph 실행
+        morph_ctrl_dot: comma_dot {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&morph_alt_dot>, <&kp RPAR>; // 기본: Alt체크 / Ctrl 적용 시: (
+            mods = <(MOD_LCTL|MOD_RCTL)>;              // Left/Right Ctrl 감지
+        };
+
+        // 3. Tap-Dance: 1번 누르면 comma_morph(Ctrl/Alt 체인), 2번 누르면 ;
+        td_dot: tap_dance_dot {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&morph_ctrl_dot>, <&kp COLON>;
+        };
+
 
 //&mt LSHIFT A
 //Parameter #1: The keycode to be sent when held (usually a modifier), e.g. LSHIFT
@@ -250,11 +275,11 @@ keymap {
 // ├─────12─────┼─────13─────┼─────14─────┼─────15─────┼─────16─────┼─────17─────┼────────────┤        ├────────────┼─────18─────┼─────19─────┼─────20─────┼─────21─────┼─────22─────┼─────23─────┤
      &kp TAB      &kp Q        &kp W        &kp E        &kp R        &kp T                                           &kp Y        &kp U        &kp I        &kp O        &kp P        &kp DEL
 // ├─────24─────┼─────25─────┼─────26─────┼─────27─────┼─────28─────┼─────29─────┼────────────┤        ├────────────┼─────30─────┼─────31─────┼─────32─────┼─────33─────┼─────34─────┼─────35─────┤
-     &kp RET      &kp A        &kp S        &kp D        &kp F        &kp G                                           &kp H        &kp J        &kp K        &kp L        &kp SEMI     &kp RET
+     &kp RET      &kp A        &kp S        &kp D        &kp F        &kp G                                           &kp H        &kp J        &kp K        &kp L        &kp SQT      &kp RET
 // ├─────36─────┼─────37─────┼─────38─────┼─────39─────┼─────40─────┼─────41─────┼─────42─────┤        ├─────43─────┼─────44─────┼─────45─────┼─────46─────┼─────47─────┼─────48─────┼─────49─────┤
-     &kp LSHFT    &kp Z        &kp X        &kp C        &kp V        &kp B        &kp LGUI              &kp B        &kp N        &kp M        &td_comma    &kp DOT      &kp FSLH     &kp RSHFT
+     &kp LSHFT    &kp Z        &kp X        &kp C        &kp V        &kp B        &mo NUM               &kp B        &kp N        &kp M        &td_comma    &td_dot      &kp FSLH     &kp RSHFT
 // ├────────────┼────────────┼────────────┼─────50─────┼─────51─────┼─────52─────┼─────53─────┤        ├─────54─────┼─────55─────┼─────56─────┼─────57─────┼────────────┼────────────┼────────────┤
-                                            &kp LCTRL    &kp LALT     &mo NUM      &lt NAV SPACE         &lt NAV SPACE &mt CAPS RALT &mo NUM    &kp RCTRL
+                                            &kp LCTRL    &kp LGUI     &kp LALT     &lt NAV SPACE         &lt NAV SPACE &mt CAPS RALT &mo NUM    &kp RCTRL
 // ╰────────────┴────────────┴────────────┴────────────┴────────────┴────────────┴────────────╯        ╰────────────┴────────────┴────────────┴────────────┴────────────┴────────────┴────────────╯       
                 >;
 
@@ -268,9 +293,9 @@ keymap {
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &kp MINUS     &trans        &trans        &trans        &trans        &trans                                             &trans        &trans        &trans        &kp LBRC      &kp RBRC      &kp PIPE
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &kp PLUS      &trans        &trans        &trans        &trans        &trans                                             &trans        &trans        &trans        &trans        &kp SQT        &trans
+     &kp PLUS      &trans        &trans        &trans        &trans        &trans                                             &trans        &trans        &trans        &trans        &trans        &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &trans        &trans        &trans        &trans        &trans        &trans        &kp CAPS               &trans        &trans        &trans        &trans        &trans        &trans        &trans
+     &trans        &trans        &trans        &trans        &trans        &trans        &trans                 &trans        &trans        &trans        &trans        &trans        &trans        &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                                                &trans        &trans        &trans        &trans                 &trans        &trans        &trans        &trans
 // ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯        ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
