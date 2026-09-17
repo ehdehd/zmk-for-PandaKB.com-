@@ -15,9 +15,10 @@
 #define BASE 0
 #define NUM 1
 #define NAV 2
-#define CTL 3
-#define ALT 4
-#define SHT 5
+#define BT 3
+#define CTL 4
+#define ALT 5
+#define SHT 6
 #define TIMEOUT 200
 
 /{
@@ -26,8 +27,8 @@
 conditional_layers {
         compatible = "zmk,conditional-layers";
         adjust_layer {
-            if-layers = <CTL ALT>;
-            then-layer = <SHT>;
+            if-layers = <NUM NAV>;
+            then-layer = <BT>;
         };
 };
 
@@ -208,7 +209,7 @@ behaviors {
         td_comma: tap_dance_comma {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <TIMEOUT>;
             bindings = <&morph_ctrl_comma>, <&kp SEMI>;
         };
 
@@ -232,18 +233,15 @@ behaviors {
         td_dot: tap_dance_dot {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <TIMEOUT>;
             bindings = <&morph_ctrl_dot>, <&kp COLON>;
         };
-
 
 //&mt LSHIFT A
 //Parameter #1: The keycode to be sent when held (usually a modifier), e.g. LSHIFT
 //Parameter #2: The keycode to sent when used as a tap, e.g. A, B.
-
         mt: mod_tap {
             compatible = "zmk,behavior-hold-tap";
-
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <TIMEOUT>;
@@ -312,6 +310,22 @@ keymap {
      &trans        &trans        &trans        &trans        &trans        &trans                                             &kp PG_DN     &kp LEFT      &kp DOWN      &kp RIGHT     &trans        &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &trans        &trans        &trans        &trans        &trans        &trans        &trans                 &trans        &trans        &mkp LCLK     &mkp MCLK     &mkp RCLK     &trans        &trans
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+                                               &trans        &trans        &trans        &trans                 &trans        &trans        &trans        &trans
+// ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯        ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
+            >;
+        };
+
+        bt_layer {
+            bindings = <
+// ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮        ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+    &bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                                        &trans        &trans        &trans        &trans        &trans        &trans
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+     &trans        &trans        &trans        &trans        &trans        &trans                                             &trans        &trans        &trans        &trans        &trans        &trans
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+     &trans        &trans        &trans        &trans        &trans        &trans                                             &trans        &trans        &trans        &trans        &trans        &trans
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+     &trans        &trans        &trans        &trans        &trans        &trans        &trans                 &trans        &trans        &trans        &trans        &trans        &trans        &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                                                &trans        &trans        &trans        &trans                 &trans        &trans        &trans        &trans
 // ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯        ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
