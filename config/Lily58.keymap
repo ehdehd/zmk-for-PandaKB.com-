@@ -184,7 +184,7 @@ behaviors {
         morph_sht_o: morph_sht_o {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp O>, <&kp LBKT>;
+            bindings = <&kp O>, <&kp LBRC>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
             keep-mods = <0>;
         };
@@ -192,7 +192,7 @@ behaviors {
         morph_sht_p: morph_sht_p {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp P>, <&kp RBKT>;
+            bindings = <&kp P>, <&kp RBRC>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
             keep-mods = <0>;
         };
