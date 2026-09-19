@@ -181,6 +181,22 @@ behaviors {
             bindings = <&kp FSLH>, <&kp CAPS>;
         };
 
+        morph_sht_o: morph_sht_o {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp O>, <&kp LBKT>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+            keep-mods = <0>;
+        };
+
+        morph_sht_p: morph_sht_p {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp P>, <&kp RBKT>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+            keep-mods = <0>;
+        };
+
 //&mt LSHIFT A
 //Parameter #1: The keycode to be sent when held (usually a modifier), e.g. LSHIFT
 //Parameter #2: The keycode to sent when used as a tap, e.g. A, B.
