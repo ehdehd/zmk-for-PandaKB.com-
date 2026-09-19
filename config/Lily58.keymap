@@ -262,7 +262,7 @@ behaviors {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <TIMEOUT>;
-            bindings = <&kp FLSH>, <&kp CAPS>;
+            bindings = <&kp FSLH>, <&kp CAPS>;
         };
 
 //&mt LSHIFT A
