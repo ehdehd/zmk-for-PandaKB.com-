@@ -189,54 +189,80 @@ behaviors {
 ***********************************************************************************/
 
 
-// hold 없이는 성공함
 behaviors {
         // 1. Alt 체크 Mod-Morph: Alt가 눌려있으면 [, 안 눌려있으면 기본 ,
         morph_alt_comma: morph_alt_comma {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp COMMA>, <&kp LBKT>; // 기본: , / Alt 적용 시: [
-            mods = <(MOD_LALT|MOD_RALT)>;        // Left/Right Alt 감지
+            bindings = <&kp COMMA>, <&kp LBKT>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+            keep-mods = <0>;
         };
 
-        // 2. Ctrl 체크 Mod-Morph: Ctrl이 눌려있으면 (, 안 눌려있으면 comma_alt_morph 실행
+        // 2. Ctrl 체크 Mod-Morph: Ctrl이 눌려있으면 (, 안 눌려있으면 morph_alt_comma 실행
         morph_ctrl_comma: comma_morph {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&morph_alt_comma>, <&kp LPAR>; // 기본: Alt체크 / Ctrl 적용 시: (
-            mods = <(MOD_LCTL|MOD_RCTL)>;              // Left/Right Ctrl 감지
+            bindings = <&morph_alt_comma>, <&kp LPAR>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
+            keep-mods = <0>;
         };
 
-        // 3. Tap-Dance: 1번 누르면 comma_morph(Ctrl/Alt 체인), 2번 누르면 ;
+        // 3. Tap-Dance: 1번 누르면 morph_ctrl_comma(Ctrl/Alt 체인), 2번 누르면 ;
         td_comma: tap_dance_comma {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <TIMEOUT>;
             bindings = <&morph_ctrl_comma>, <&kp SEMI>;
+            keep-mods = <0>;
         };
 
-        // 1. Alt 체크 Mod-Morph: Alt가 눌려있으면 [, 안 눌려있으면 기본 ,
+        // 1. Alt 체크 Mod-Morph: Alt가 눌려있으면 ], 안 눌려있으면 기본 ,
         morph_alt_dot: morph_alt_dot {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp DOT>, <&kp RBKT>; // 기본: , / Alt 적용 시: [
-            mods = <(MOD_LALT|MOD_RALT)>;        // Left/Right Alt 감지
+            bindings = <&kp DOT>, <&kp RBKT>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+            keep-mods = <0>;
         };
 
-        // 2. Ctrl 체크 Mod-Morph: Ctrl이 눌려있으면 (, 안 눌려있으면 comma_alt_morph 실행
+        // 2. Ctrl 체크 Mod-Morph: Ctrl이 눌려있으면 ), 안 눌려있으면 morph_alt_dot 실행
         morph_ctrl_dot: comma_dot {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&morph_alt_dot>, <&kp RPAR>; // 기본: Alt체크 / Ctrl 적용 시: (
-            mods = <(MOD_LCTL|MOD_RCTL)>;              // Left/Right Ctrl 감지
+            bindings = <&morph_alt_dot>, <&kp RPAR>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
         };
 
-        // 3. Tap-Dance: 1번 누르면 comma_morph(Ctrl/Alt 체인), 2번 누르면 ;
+        // 3. Tap-Dance: 1번 누르면 morph_ctrl_dot(Ctrl/Alt 체인), 2번 누르면 ;
         td_dot: tap_dance_dot {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <TIMEOUT>;
             bindings = <&morph_ctrl_dot>, <&kp COLON>;
+        };
+
+        morph_sht_under: morph_sht_under {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp TAB>, <&kp UNDER>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+            keep-mods = <0>;
+        };
+
+        morph_sht_equal: morph_sht_equal {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp RET>, <&kp EQUAL>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+            keep-mods = <0>;
+        };
+
+        td_flsh: tap_dance_flsh {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <TIMEOUT>;
+            bindings = <&kp FLSH>, <&kp CAPS>;
         };
 
 //&mt LSHIFT A
@@ -277,7 +303,7 @@ keymap {
 // ├─────24─────┼─────25─────┼─────26─────┼─────27─────┼─────28─────┼─────29─────┼────────────┤        ├────────────┼─────30─────┼─────31─────┼─────32─────┼─────33─────┼─────34─────┼─────35─────┤
      &kp RET      &kp A        &kp S        &kp D        &kp F        &kp G                                           &kp H        &kp J        &kp K        &kp L        &kp SQT      &kp RET
 // ├─────36─────┼─────37─────┼─────38─────┼─────39─────┼─────40─────┼─────41─────┼─────42─────┤        ├─────43─────┼─────44─────┼─────45─────┼─────46─────┼─────47─────┼─────48─────┼─────49─────┤
-     &kp LSHFT    &kp Z        &kp X        &kp C        &kp V        &kp B        &kp LGUI              &kp B        &kp N        &kp M        &td_comma    &td_dot      &kp FSLH     &kp RSHFT
+     &kp LSHFT    &kp Z        &kp X        &kp C        &kp V        &kp B        &kp LGUI              &kp FLSH     &kp N        &kp M        &td_comma    &td_dot      &kp B        &kp RSHFT
 // ├────────────┼────────────┼────────────┼─────50─────┼─────51─────┼─────52─────┼─────53─────┤        ├─────54─────┼─────55─────┼─────56─────┼─────57─────┼────────────┼────────────┼────────────┤
                                             &kp LCTRL    &mo NUM      &kp LALT    &lt NUM SPACE         &lt NAV SPACE &kp RALT     &mo NAV      &kp RCTRL
 // ╰────────────┴────────────┴────────────┴────────────┴────────────┴────────────┴────────────╯        ╰────────────┴────────────┴────────────┴────────────┴────────────┴────────────┴────────────╯       
@@ -293,7 +319,7 @@ keymap {
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &kp MINUS     &trans        &trans        &mmv MOVE_UP  &trans        &trans                                             &trans        &kp N7        &kp N8        &kp N9        &trans        &kp PIPE
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &kp EQUAL     &trans       &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &trans                                          &trans        &kp N4        &kp N5        &kp N6        &trans        &trans
+     &kp PLUS      &trans       &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &trans                                          &trans        &kp N4        &kp N5        &kp N6        &trans        &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &trans        &trans        &trans        &mkp LCLK     &mkp RCLK     &trans        &trans                 &trans        &trans        &kp N1        &kp N2        &kp N3        &trans        &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
