@@ -81,88 +81,6 @@ combos {
 
 /***********************************************************************************
 behaviors {
-        // 1. Alt 체크 Mod-Morph: Alt 조합 시 [ 입력
-        comma_alt_morph: comma_alt_morph {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp COMMA>, <&kp LBKT>;
-            mods = <(MOD_LALT|MOD_RALT)>;
-        };
-
-        // 2. Ctrl 체크 Mod-Morph: Ctrl 조합 시 ( 입력
-        comma_morph: comma_morph {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&comma_alt_morph>, <&kp LPAR>;
-            mods = <(MOD_LCTL|MOD_RCTL)>;
-        };
-
-        // 3. Tap-Hold: Tap하면 Mod-Morph 체인 실행, Hold하면 ? 입력
-        comma_tap_hold: comma_tap_hold {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>;
-            flavor = "tap-preferred";             // 빠른 탭 입력을 우선 처리
-            tapping-term-ms = <200>;             // 홀드 판정 시간 (ms)
-            quick-tap-ms = <0>;
-            bindings = <&kp QMARK>, <&comma_morph>; // <Hold 동작, Tap 동작>
-        };
-
-        // 4. Tap-Dance: 1번 누름/홀드는 comma_tap_hold, 2번 연속 탭은 ;
-        td_comma: tap_dance_comma {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&comma_tap_hold>, <&kp SEMI>;
-        };
-    };
-
-
-macros {
-        // 1. ? 입력을 위한 인자 0개짜리 매크로
-        qmark_macro: qmark_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp QMARK>;
-        };
-    };
-
-behaviors {
-        // 1. Alt 체크 Mod-Morph: Alt 조합 시 [ 입력
-        comma_alt_morph: comma_alt_morph {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp COMMA>, <&kp LBKT>;
-            mods = <(MOD_LALT|MOD_RALT)>;
-        };
-
-        // 2. Ctrl 체크 Mod-Morph: Ctrl 조합 시 ( 입력
-        comma_morph: comma_morph {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&comma_alt_morph>, <&kp LPAR>;
-            mods = <(MOD_LCTL|MOD_RCTL)>;
-        };
-
-        // 4. Tap-Dance: 1번 누름/홀드는 comma_tap_hold, 2번 연속 탭은 ;
-        td_comma: tap_dance_comma {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&comma_morph>, <&kp SEMI>;
-        };
-
-        // 3. Tap-Hold: Tap하면 Mod-Morph 체인 실행, Hold하면 ? 입력
-        comma_tap_hold: comma_tap_hold {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";             // 빠른 탭 입력을 우선 처리
-            tapping-term-ms = <200>;             // 홀드 판정 시간 (ms)
-            quick-tap-ms = <0>;
-            bindings = <&kp>, <&td_comma>; // <Hold 동작, Tap 동작>
-        };
-    };
-
-behaviors {
         // 1. 극한의 탭댄스 정의
         super_tap_dance: super_tap_dance {
             compatible = "zmk,behavior-tap-dance";
@@ -185,7 +103,6 @@ behaviors {
             bindings = <&mo 1>, <&kp B>; // 누르고 있으면 1번 레이어, 떼면 'B' 입력
         };
     };
-
 ***********************************************************************************/
 
 
