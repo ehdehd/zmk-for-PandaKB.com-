@@ -174,11 +174,11 @@ behaviors {
             keep-mods = <0>;
         };
 
-        td_flsh: tap_dance_flsh {
+        td_fslh: tap_dance_fslh {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <TIMEOUT>;
-            bindings = <&kp FSLH>, <&kp CAPS>;
+            bindings = <&kp FSLH>, <&kp A>;
         };
 
 //&mt LSHIFT A
