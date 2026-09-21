@@ -170,17 +170,24 @@ behaviors {
             bindings = <&morph_ctrl_dot>, <&kp COLON>;
         };
 
-        morph_sht_under: morph_sht_under {
+        sht_tab_under: morph_sht_tab_under {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp TAB>, <&kp UNDER>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
             keep-mods = <0>;
         };
-        morph_sht_equal: morph_sht_equal {
+        sht_ret_qual: morph_sht_ret_equal {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp RET>, <&kp EQUAL>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+            keep-mods = <0>;
+        };
+        sht_ret_caps: morph_sht_ret_caps {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp RET>, <&kp CAPS>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
             keep-mods = <0>;
         };
@@ -244,9 +251,9 @@ keymap {
 // ╭──────00──────┬─────01─────┬─────02─────┬─────03─────┬─────04─────┬─────05─────┬────────────╮        ╭────────────┬─────06─────┬─────07─────┬─────08─────┬─────09─────┬─────10─────┬─────11─────╮
      &kp ESC        &kp N1       &kp N2       &kp N3       &kp N4       &kp N5                                          &kp N6       &kp N7       &kp N8       &kp N9       &kp N0       &kp BSPC
 // ├──────12──────┼─────13─────┼─────14─────┼─────15─────┼─────16─────┼─────17─────┼────────────┤        ├────────────┼─────18─────┼─────19─────┼─────20─────┼─────21─────┼─────22─────┼─────23─────┤
-     &morph_sht_under  &kp Q     &kp W        &kp E        &kp R        &kp T                                           &kp Y        &kp U        &kp I        &morph_alt_o &morph_alt_p &kp DEL
+     &sht_tab_under  &kp Q       &kp W        &kp E        &kp R        &kp T                                           &kp Y        &kp U        &kp I        &kp O        &kp P        &kp DEL
 // ├──────24──────┼─────25─────┼─────26─────┼─────27─────┼─────28─────┼─────29─────┼────────────┤        ├────────────┼─────30─────┼─────31─────┼─────32─────┼─────33─────┼─────34─────┼─────35─────┤
-     &morph_sht_equal  &kp A     &kp S        &kp D        &kp F        &kp G                                           &kp H        &kp J        &kp K        &kp L        &kp SQT      &kp RET
+     &sht_ret_equal  &kp A       &kp S        &kp D        &kp F        &kp G                                           &kp H        &kp J        &kp K        &kp L        &kp SQT      &sht_ret_caps
 // ├──────36──────┼─────37─────┼─────38─────┼─────39─────┼─────40─────┼─────41─────┼─────42─────┤        ├─────43─────┼─────44─────┼─────45─────┼─────46─────┼─────47─────┼─────48─────┼─────49─────┤
      &kp LSHFT      &kp Z        &kp X        &kp C        &kp V        &kp B        &kp LGUI              &kp FSLH     &kp N        &kp M        &td_comma    &td_dot      &kp B        &kp RSHFT
 // ├──────────────┼────────────┼────────────┼─────50─────┼─────51─────┼─────52─────┼─────53─────┤        ├─────54─────┼─────55─────┼─────56─────┼─────57─────┼────────────┼────────────┼────────────┤
@@ -262,11 +269,11 @@ keymap {
 // ╭─────────────┬─────────────┬──────────────┬──────────────┬──────────────┬─────────────┬─────────────╮        ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
      &kp TILDE     &kp F1        &kp F2        &kp F3          &kp F4         &kp F5                                             &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &kp GRAVE
 // ├─────────────┼─────────────┼──────────────┼──────────────┼──────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &kp MINUS     &trans        &trans        &mmv MOVE_UP    &trans         &trans                                             &trans        &kp N7        &kp N8        &kp N9        &trans        &kp PIPE
+     &kp MINUS     &trans        &trans        &mmv MOVE_UP    &trans         &trans                                             &kp N7        &kp N8        &kp N9        &trans        &trans        &kp PIPE
 // ├─────────────┼─────────────┼──────────────┼──────────────┼──────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &kp PLUS      &trans       &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &trans                                             &trans        &kp N4        &kp N5        &kp N6        &trans        &trans
+     &kp PLUS      &trans       &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &trans                                             &kp N4        &kp N5        &kp N6        &trans        &trans        &trans
 // ├─────────────┼─────────────┼──────────────┼──────────────┼──────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &trans        &trans        &mkp LCLK      &mkp MCLK      &mkp RCLK      &trans        &trans                 &kp BSLH      &trans        &kp N1        &kp N2        &kp N3        &trans        &trans
+     &trans        &trans        &mkp LCLK      &mkp MCLK      &mkp RCLK      &trans        &trans                 &kp BSLH      &kp N1        &kp N2        &kp N3        &trans        &trans        &trans
 // ├─────────────┼─────────────┼──────────────┼──────────────┼──────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                                                 &trans        &trans          &trans        &trans                 &kp N0        &trans        &trans        &trans
 // ╰─────────────┴─────────────┴──────────────┴──────────────┴──────────────┴─────────────┴─────────────╯        ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
