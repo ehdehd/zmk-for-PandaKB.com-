@@ -41,13 +41,13 @@ combos {
             timeout-ms = <TIMEOUT>;
             key-positions = <27 28>;   // d f
             bindings = <&kp LPAR>;     // (
-            layers = <0>
+            layers = <0>;
         };
         combo_lt {
             timeout-ms = <TIMEOUT>;
             key-positions = <26 27>;   // s d
             bindings = <&kp LT>;     // <
-            layers = <0>
+            layers = <0>;
         };
         combo_lbkt {
             timeout-ms = <TIMEOUT>;
