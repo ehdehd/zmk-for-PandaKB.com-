@@ -177,7 +177,7 @@ behaviors {
             mods = <(MOD_LSFT|MOD_RSFT)>;
             keep-mods = <0>;
         };
-        sht_ret_qual: morph_sht_ret_equal {
+        sht_ret_equal: morph_sht_ret_equal {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp RET>, <&kp EQUAL>;
