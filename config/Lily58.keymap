@@ -21,7 +21,9 @@
 #define CTL 4
 #define ALT 5
 #define SHT 6
-#define TIMEOUT 130
+#define TD_TIMEOUT 170
+#define CB_TIMEOUT 130
+#define TIMEOUT 200
 
 /{
 
@@ -38,51 +40,51 @@ combos {
         compatible = "zmk,combos";
 
         combo_lpar {
-            timeout-ms = <TIMEOUT>;
+            timeout-ms = <CB_TIMEOUT>;
             key-positions = <27 28>;   // d f
             bindings = <&kp LPAR>;     // (
             layers = <0>;
         };
         combo_lt {
-            timeout-ms = <TIMEOUT>;
+            timeout-ms = <CB_TIMEOUT>;
             key-positions = <26 27>;   // s d
             bindings = <&kp LT>;     // <
             layers = <0>;
         };
         combo_lbkt {
-            timeout-ms = <TIMEOUT>;
+            timeout-ms = <CB_TIMEOUT>;
             key-positions = <15 16>;   // e r
             bindings = <&kp LBKT>;     // [
             layers = <0>;
         };
         combo_lbrc {
-            timeout-ms = <TIMEOUT>;
+            timeout-ms = <CB_TIMEOUT>;
             key-positions = <14 15>;   // w e
             bindings = <&kp LBRC>;     // {
             layers = <0>;
         };
 
         combo_rpar {
-            timeout-ms = <TIMEOUT>;
+            timeout-ms = <CB_TIMEOUT>;
            key-positions = <31 32>;    // j k
             bindings = <&kp RPAR>;     // )
             layers = <0>;
         };
         combo_gt {
-            timeout-ms = <TIMEOUT>;
+            timeout-ms = <CB_TIMEOUT>;
            key-positions = <32 33>;    // k l
             bindings = <&kp GT>;     // >
             layers = <0>;
         };
         combo_rbkt {
-            timeout-ms = <TIMEOUT>;
+            timeout-ms = <CB_TIMEOUT>;
             key-positions = <19 20>;   // u i
             bindings = <&kp RBKT>;     // ]
             layers = <0>;
         };
 
         combo_rbrc {
-            timeout-ms = <TIMEOUT>;
+            timeout-ms = <CB_TIMEOUT>;
             key-positions = <20 21>;   // i o
             bindings = <&kp RBRC>;     // }
             layers = <0>;
@@ -141,7 +143,7 @@ behaviors {
         td_comma: tap_dance_comma {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <TIMEOUT>;
+            tapping-term-ms = <TD_TIMEOUT>;
             bindings = <&morph_ctrl_comma>, <&kp SEMI>;
         };
 
@@ -166,7 +168,7 @@ behaviors {
         td_dot: tap_dance_dot {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <TIMEOUT>;
+            tapping-term-ms = <TD_TIMEOUT>;
             bindings = <&morph_ctrl_dot>, <&kp COLON>;
         };
 
@@ -211,7 +213,7 @@ behaviors {
         td_fslh: tap_dance_fslh {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <TIMEOUT>;
+            tapping-term-ms = <TD_TIMEOUT>;
             bindings = <&kp FSLH>, <&kp CAPS>;
         };
 */
