@@ -21,8 +21,8 @@
 #define CTL 4
 #define ALT 5
 #define SHT 6
+#define CB_TIMEOUT 100
 #define TD_TIMEOUT 170
-#define CB_TIMEOUT 130
 #define TIMEOUT 200
 
 /{
