@@ -218,10 +218,6 @@ behaviors {
         };
 */
 
-
-//&mt LSHIFT A
-//Parameter #1: The keycode to be sent when held (usually a modifier), e.g. LSHIFT
-//Parameter #2: The keycode to sent when used as a tap, e.g. A, B.
         mt: mod_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -231,9 +227,6 @@ behaviors {
             display-name = "Mod-Tap";
         };
 
-//&lt 1 A
-//Parameter: The layer number to enable while held, e.g. 1
-//Parameter: The keycode to send when tapped, e.g. A
         lt: layer_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -246,10 +239,10 @@ behaviors {
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "tap-preferred";            // 탭/홀드 판정을 자연스럽게 밸런싱
-            tapping-term-ms = <TIMEOUT>;        // 홀드 인정 기준 시간
-            quick-tap-ms = <CB_TIMEOUT>;           // 연타 시 홀드 무시하고 탭으로 입력
-            require-prior-idle-ms = <TD_TIMEOUT>;  // 150ms 이내에 다른 키를 입력했다면 무조건 '탭'으로 처리 (고속 타이핑 시 오입력 방지 핵심)
+            flavor = "tap-preferred";
+            quick-tap-ms = <CB_TIMEOUT>;                // 100
+            require-prior-idle-ms = <TD_TIMEOUT>;       // 170
+            tapping-term-ms = <TIMEOUT>;                // 200
             bindings = <&kp>, <&kp>;
         };
 };
