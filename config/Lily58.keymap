@@ -231,7 +231,7 @@ behaviors {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <TIMEOUT>;
+            tapping-term-ms = <TIMEOUT>;                // 200
             bindings = <&mo>, <&kp>;
             display-name = "Layer-Tap";
         };
@@ -259,7 +259,7 @@ keymap {
 // ├──────24──────┼─────25─────┼─────26─────┼─────27─────┼─────28─────┼─────29─────┼────────────┤        ├────────────┼─────30─────┼─────31─────┼─────32─────┼─────33─────┼─────34─────┼─────35─────┤
      &sht_ret_equal &hm LGUI A   &hm LALT S   &hm LCTRL D  &hm LSHFT F  &kp G                                           &kp H        &hm RSHFT J  &hm RALT K   &hm RCTRL L  &kp SQT      &sht_ret_caps
 // ├──────36──────┼─────37─────┼─────38─────┼─────39─────┼─────40─────┼─────41─────┼─────42─────┤        ├─────43─────┼─────44─────┼─────45─────┼─────46─────┼─────47─────┼─────48─────┼─────49─────┤
-     &kp LSHFT      &kp Z        &kp X        &kp C        &kp V        &kp B        &kp LGUI              &kp FSLH     &kp N        &kp M        &td_comma    &td_dot      &kp B        &kp RSHFT
+     &kp LSHFT      &mt LC(Z) Z &mt LC(X) X   &mt LC(C) C &mt LC(V) V   &kp B        &kp LGUI              &kp FSLH     &kp N        &kp M        &td_comma    &td_dot      &kp B        &kp RSHFT
 // ├──────────────┼────────────┼────────────┼─────50─────┼─────51─────┼─────52─────┼─────53─────┤        ├─────54─────┼─────55─────┼─────56─────┼─────57─────┼────────────┼────────────┼────────────┤
                                               &mo NUM      &kp LCTRL    &kp LALT   &lt NUM SPACE         &lt NAV SPACE  &kp RALT     &kp RCTRL    &mo NAV
 // ╰──────────────┴────────────┴────────────┴────────────┴────────────┴────────────┴────────────╯        ╰────────────┴────────────┴────────────┴────────────┴────────────┴────────────┴────────────╯       
