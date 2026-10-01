@@ -264,7 +264,7 @@ behaviors {
                                  &kp LGUI     &mo NUM      &kp LALT     &kp LCTRL   &lt NUM SPACE         &lt NAV SPACE &kp RALT     &kp RCTRL    &mo NAV      &kp FSLH
 // ╰──────────────┴────────────┴────────────┴────────────┴────────────┴────────────┴────────────╯        ╰────────────┴────────────┴────────────┴────────────┴────────────┴────────────┴────────────╯       
                 >;
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
         };
 
         num_layer {
