@@ -6,6 +6,9 @@ config ZMK_KEYBOARD_NAME
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
 
+config ZMK_USB
+    default y
+
 endif
 
 
@@ -14,7 +17,11 @@ if SHIELD_LILY58_DONGLE_LEFT || SHIELD_LILY58_DONGLE_RIGHT || SHIELD_LILY58_DONG
 config ZMK_SPLIT
     default y
 
+config ZMK_BLE
+    default y
+
 endif
+
 
 if SHIELD_LILY58_DONGLE_LEFT || SHIELD_LILY58_DONGLE_RIGHT
 
