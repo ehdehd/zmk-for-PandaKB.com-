@@ -9,11 +9,6 @@ if SHIELD_LILY58_CENTRAL
     config ZMK_USB
         default y
 
-    if ZMK_DISPLAY
-        config I2C
-            default y
-    endif
-
 endif
 
 
@@ -24,10 +19,6 @@ if SHIELD_LILY58_LEFT || SHIELD_LILY58_RIGHT || SHIELD_LILY58_CENTRAL
     
     config ZMK_BLE
         default y
-endif
-
-
-if SHIELD_LILY58_LEFT || SHIELD_LILY58_RIGHT
 
     if ZMK_DISPLAY
 
