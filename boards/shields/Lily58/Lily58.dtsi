@@ -4,8 +4,6 @@
 / {
     chosen {
         zmk,kscan = &kscan0;
-        // zmk,physical-layout = &layout_0;
-        // zephyr,display = &oled;
     };
 
     default_transform: keymap_transform_0 {
