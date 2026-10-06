@@ -1,5 +1,5 @@
 file_format: "1"
-id: Lily58
+id: lily58
 name: Lily58
 type: shield
 url: https://pandakb.com
@@ -9,8 +9,10 @@ features:
   - keys
   - display
   - studio
+  - dongle
   - underglow
   - encoder
 siblings:
+  - Lily58_central
   - Lily58_left
   - Lily58_right
