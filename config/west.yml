@@ -5,7 +5,6 @@ manifest:
   #additional module
     - name: penguinchat
       url-base: https://github.com/penguinchat
-      
     - name: mctechnology17
       url-base: https://github.com/mctechnology17
     - name: m165437
@@ -24,7 +23,6 @@ manifest:
     - name: zmk-for-PandaKB.com-
       remote: penguinchat
       revision: PandaKB_Lily58
-      
     - name: zmk-nice-oled
       remote: mctechnology17
       revision: main
