@@ -41,10 +41,10 @@ include:
 
   # peripheral with nice!view display(with nice_view_custom module)
   - board: nice_nano_v2
-    shield: Lily58_dongle_left Nice_view_config nice_view_custom
+    shield: Lily58_dongle_left nice_view_adapter nice_view_gem # Nice_view_config nice_view_custom
     artifact-name: Lily58_peripheral_left_nice_view
   - board: nice_nano_v2
-    shield: Lily58_dongle_right Nice_view_config nice_view_custom
+    shield: Lily58_dongle_right nice_view_adapter nice_view_gem # Nice_view_config nice_view_custom
     artifact-name: Lily58_peripheral_right_nice_view
  
   - board: nice_nano_v2
