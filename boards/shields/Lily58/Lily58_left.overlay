@@ -20,7 +20,7 @@
 / {
     chosen {
         zmk,battery = &vbatt;
-        zephyr,display = &oled;
+        zephyr,display = &nice_view_spi;
     };
 
     vbatt: vbatt {
