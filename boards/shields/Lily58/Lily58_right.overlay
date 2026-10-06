@@ -23,7 +23,8 @@
 
 / {
     chosen {
-      zmk,battery = &vbatt;
+        zmk,battery = &vbatt;
+        zephyr,display = &oled;
     };
 
     vbatt: vbatt {
