@@ -6,12 +6,11 @@
 
 #include <dt-bindings/zmk/matrix_transform.h>
 #include "Lily58-layouts.dtsi"
-#include <dt-bindings/led/led.h>
+// #include <dt-bindings/led/led.h>
 
 / {
     chosen {
         zmk,kscan = &kscan0;
-        zephyr,display = &oled;
         zmk,physical-layout = &layout_0;
     };
 
@@ -37,28 +36,4 @@ RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5) RC(4,5) RC(4,6) RC(3,6) RC(3,7) 
         wakeup-source;
         diode-direction = "col2row";
     };
-
-/****************************************************************************************************
-   left_encoder: encoder_left {
-        compatible = "alps,ec11";
-        a-gpios = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        b-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        steps = <80>;
-        status = "disabled";
-    };
-
-    right_encoder: encoder_right {
-        compatible = "alps,ec11";
-        a-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        b-gpios = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        steps = <80>;
-        status = "disabled";
-    };
-
-    sensors: sensors {
-        compatible = "zmk,keymap-sensors";
-        sensors = <&left_encoder &right_encoder>;
-        triggers-per-rotation = <20>;
-    };
-****************************************************************************************************/
 };
