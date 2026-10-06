@@ -1,6 +1,5 @@
 #include "Lily58.dtsi"
 
-/****************************************************************************
 / {
     chosen {
         zmk,kscan = &kscan0;
@@ -11,7 +10,6 @@
         compatible = "zmk,battery-nrf-vddh";
     };
 };
-****************************************************************************/
 
 &kscan0 {
     compatible = "zmk,kscan-gpio-matrix";
