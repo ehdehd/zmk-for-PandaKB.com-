@@ -13,8 +13,8 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: main
-#      revision: v0.3.0
+#      revision: main
+      revision: v0.3.0
       import: app/west.yml
   #additional module
     - name: zmk-nice-oled
@@ -25,8 +25,8 @@ manifest:
       revision: main
     - name: zmk-dongle-display
       remote: englmaxi
-      revision: main
-#      revision: v0.3
+#      revision: main
+      revision: v0.3
       
   self:
     path: config
