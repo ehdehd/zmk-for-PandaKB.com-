@@ -1,15 +1,15 @@
 include:
-  - board: nice_nano_v2
+  - board: nice_nano #_v2
     shield: Lily58_central dongle_display
     artifact-name: Lily58_central
   
-  - board: nice_nano_v2
+  - board: nice_nano #_v2
     shield: Lily58_left nice_view nice_epaper
     artifact-name: Lily58_left
     
-  - board: nice_nano_v2
+  - board: nice_nano #_v2
     shield: Lily58_right nice_view nice_epaper
     artifact-name: Lily58_right
  
-  - board: nice_nano_v2
+  - board: nice_nano #_v2
     shield: settings_reset
