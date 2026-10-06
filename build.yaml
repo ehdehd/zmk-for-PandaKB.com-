@@ -4,7 +4,7 @@ include:
     artifact-name: Lily58_central
   
   - board: nice_nano_v2
-    shield: Lily58_left nice_view_adapter nice_epaper
+    shield: Lily58_left nice_view #_adapter nice_epaper
     artifact-name: Lily58_left
     
   - board: nice_nano_v2
