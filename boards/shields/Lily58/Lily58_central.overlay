@@ -5,7 +5,7 @@
 *
 */
 
-#include "Lily58_dongle.dtsi"
+#include "Lily58.dtsi"
 
 /{
     chosen {
