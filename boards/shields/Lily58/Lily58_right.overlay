@@ -24,7 +24,7 @@
 / {
     chosen {
         zmk,battery = &vbatt;
-        zephyr,display = &oled;
+        zephyr,display = &spi0;
     };
 
     vbatt: vbatt {
