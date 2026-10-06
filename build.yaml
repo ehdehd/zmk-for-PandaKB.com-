@@ -4,11 +4,11 @@ include:
     artifact-name: Lily58_central
   
   - board: nice_nano #_v2
-    shield: Lily58_left nice_epaper # nice_view nice_epaper
+    shield: Lily58_left # nice_epaper # nice_view nice_epaper
     artifact-name: Lily58_left
     
   - board: nice_nano #_v2
-    shield: Lily58_right nice_view # nice_epaper
+    shield: Lily58_right # nice_view # nice_epaper
     artifact-name: Lily58_right
  
   - board: nice_nano #_v2
