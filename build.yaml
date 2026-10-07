@@ -1,11 +1,11 @@
 include:
-#  - board: nice_nano//zmk
-#    shield: lily58_central
-#    artifact-name: lily58_central
-
   - board: nice_nano//zmk
-    shield: lily58_central dongle_display
-    artifact-name: lily58_central_display
+    shield: lily58_central
+    artifact-name: lily58_central
+
+#  - board: nice_nano//zmk
+#    shield: lily58_central dongle_display
+#    artifact-name: lily58_central_display
   
   - board: nice_nano//zmk
     shield: lily58_left
