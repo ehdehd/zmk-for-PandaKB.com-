@@ -1,13 +1,13 @@
 include:
-  - board: nice_nano
+  - board: nice_nano/nrf52840/zmk
     shield: lily58_central dongle_display
     artifact-name: lily58_central_display
 
-  - board: nice_nano
+  - board: nice_nano/nrf52840/zmk
     shield: lily58_left nice_view
     artifact-name: lily58_left
     
-  - board: nice_nano
+  - board: nice_nano/nrf52840/zmk
     shield: lily58_right nice_view
     artifact-name: lily58_right
 
@@ -23,6 +23,6 @@ include:
 #    shield: lily58_right
 #    artifact-name: lily58_right
  
-  - board: nice_nano
+  - board: nice_nano/nrf52840/zmk
     shield: settings_reset
     artifact-name: nice_nano_reset
