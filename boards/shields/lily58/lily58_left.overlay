@@ -63,15 +63,3 @@ nice_view_spi: &spi0 {
     pinctrl-1 = <&spi0_sleep>;
     pinctrl-names = "default", "sleep";
     cs-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>;
-
-/**************************************************************
-/ {
-    chosen {
-        zmk,battery = &vbatt;
-    };
-
-    vbatt: vbatt {
-        compatible = "zmk,battery-nrf-vddh";
-    };
-};
-**************************************************************/
