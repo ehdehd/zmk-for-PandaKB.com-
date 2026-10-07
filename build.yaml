@@ -1,15 +1,15 @@
 include:
-  - board: nice_nano_v2_zmk
+  - board: nice_nano_zmk
     shield: lily58_central
     artifact-name: lily58_central
   
-  - board: nice_nano_v2_zmk
+  - board: nice_nano_zmk
     shield: lily58_left
     artifact-name: lily58_left
     
-  - board: nice_nano_v2_zmk
+  - board: nice_nano_zmk
     shield: lily58_right
     artifact-name: lily58_right
  
-  - board: nice_nano_v2_zmk
+  - board: nice_nano_zmk
     shield: settings_reset
