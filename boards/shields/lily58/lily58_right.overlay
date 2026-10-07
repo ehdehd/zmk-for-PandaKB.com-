@@ -1,15 +1,5 @@
 #include "lily58.dtsi"
 
-/ {
-    chosen {
-        zmk,battery = &vbatt;
-    };
-
-    vbatt: vbatt {
-        compatible = "zmk,battery-nrf-vddh";
-    };
-};
-
 &default_transform {
     col-offset = <6>;
 };
@@ -32,3 +22,15 @@
         , <&pro_micro 19 GPIO_ACTIVE_HIGH>
         ;
 };
+
+/**************************************************************
+/ {
+    chosen {
+        zmk,battery = &vbatt;
+    };
+
+    vbatt: vbatt {
+        compatible = "zmk,battery-nrf-vddh";
+    };
+};
+**************************************************************/
