@@ -1,15 +1,5 @@
 #include "lily58.dtsi"
 
-/ {
-    chosen {
-        zmk,battery = &vbatt;
-    };
-
-    vbatt: vbatt {
-        compatible = "zmk,battery-nrf-vddh";
-    };
-};
-
 &kscan0 {
     compatible = "zmk,kscan-gpio-matrix";
     row-gpios
@@ -28,3 +18,15 @@
         , <&pro_micro 10 GPIO_ACTIVE_HIGH>
         ;
 };
+
+/**************************************************************
+/ {
+    chosen {
+        zmk,battery = &vbatt;
+    };
+
+    vbatt: vbatt {
+        compatible = "zmk,battery-nrf-vddh";
+    };
+};
+**************************************************************/
