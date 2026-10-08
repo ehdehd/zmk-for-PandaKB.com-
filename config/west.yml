@@ -7,8 +7,8 @@ manifest:
 #      url-base: https://github.com/mctechnology17
 #    - name: m165437
 #      url-base: https://github.com/M165437
-#    - name: englmaxi
-#      url-base: https://github.com/englmaxi
+    - name: englmaxi
+      url-base: https://github.com/englmaxi
       
   projects:
     - name: zmk
@@ -22,9 +22,9 @@ manifest:
 #    - name: nice-view-gem
 #      remote: m165437
 #      revision: main
-#    - name: zmk-dongle-display
-#      remote: englmaxi
-#      revision: main
+    - name: zmk-dongle-display
+      remote: englmaxi
+      revision: main
       
   self:
     path: config
