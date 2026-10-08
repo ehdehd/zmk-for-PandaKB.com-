@@ -14,7 +14,7 @@
     };
 };
 
-
+/****
 &pinctrl {
        i2c0_default: i2c0_default {
                group1 {
@@ -31,6 +31,8 @@
                };
        };
 };
+
+****/
 
 &pro_micro_i2c {
 // &i2c0 {
