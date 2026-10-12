@@ -11,8 +11,8 @@
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/pointing.h>
 
-// #define ZMK_POINTING_DEFAULT_MOVE_VAL 900   // default: 600
-// #define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // default: 10
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 900   // default: 600
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // default: 10
 
 #define BASE 0
 #define NUM 1
@@ -255,16 +255,16 @@ keymap {
 // ├──────12──────┼─────13─────┼─────14─────┼─────15─────┼─────16─────┼─────17─────┼────────────┤        ├────────────┼─────18─────┼─────19─────┼─────20─────┼─────21─────┼─────22─────┼─────23─────┤
      &sht_tab_under  &kp Q       &kp W        &kp E        &kp R        &kp T                                           &kp Y        &kp U        &kp I        &kp O        &kp P        &kp DEL
 // ├──────24──────┼─────25─────┼─────26─────┼─────27─────┼─────28─────┼─────29─────┼────────────┤        ├────────────┼─────30─────┼─────31─────┼─────32─────┼─────33─────┼─────34─────┼─────35─────┤
-//   &sht_ret_equal &hm LGUI A   &hm LALT S   &hm LCTRL D  &hm LSHFT F  &kp G                                           &kp H        &hm LSHFT J  &hm LCTRL K  &hm LALT L   &hm LGUI SQT &sht_ret_caps
-     &sht_ret_equal &kp A        &kp S        &kp D        &kp F        &kp G                                           &kp H        &kp J        &kp K        &kp L        &kp SQT      &sht_ret_caps
+     &sht_ret_equal &hm LGUI A   &hm LALT S   &hm LCTRL D  &hm LSHFT F  &kp G                                           &kp H        &hm LSHFT J  &hm LCTRL K  &hm LALT L   &hm LGUI SQT &sht_ret_caps
 // ├──────36──────┼─────37─────┼─────38─────┼─────39─────┼─────40─────┼─────41─────┼─────42─────┤        ├─────43─────┼─────44─────┼─────45─────┼─────46─────┼─────47─────┼─────48─────┼─────49─────┤
-     &kp LSHFT      &mt LC(Z) Z &mt LC(X) X   &mt LC(C) C &mt LC(V) V   &kp B        &mo NUM               &mo NAV      &kp N        &kp M        &td_comma    &td_dot      &kp B        &kp RSHFT
+     &kp LSHFT      &mt LC(Z) Z &mt LC(X) X   &mt LC(C) C &mt LC(V) V   &kp B        &kp HOME              &kp END      &kp N        &kp M        &td_comma    &td_dot      &kp B        &kp RSHFT
 // ├──────────────┼────────────┼────────────┼─────50─────┼─────51─────┼─────52─────┼─────53─────┤        ├─────54─────┼─────55─────┼─────56─────┼─────57─────┼────────────┼────────────┼────────────┤
                                               &kp LALT     &kp LGUI     &kp LCTRL   &lt NUM SPACE         &lt NAV SPACE &kp RALT     &kp RCTRL    &kp FSLH
 // ╰──────────────┴────────────┴────────────┴────────────┴────────────┴────────────┴────────────╯        ╰────────────┴────────────┴────────────┴────────────┴────────────┴────────────┴────────────╯       
-                >;
 
-//            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+//   &sht_ret_equal &kp A        &kp S        &kp D        &kp F        &kp G                                           &kp H        &kp J        &kp K        &kp L        &kp SQT      &sht_ret_caps
+
+                >;
         };
 
         num_layer {
@@ -272,17 +272,17 @@ keymap {
 // ╭─────────────┬─────────────┬──────────────┬──────────────┬──────────────┬─────────────┬─────────────╮        ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
      &kp TILDE     &kp F1        &kp F2         &kp F3         &kp F4         &kp F5                                             &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &kp GRAVE
 // ├─────────────┼─────────────┼──────────────┼──────────────┼──────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &kp MINUS     &kp F11       &kp F12        &trans         &trans         &trans                                             &kp N7        &kp N8        &kp N9        &trans        &trans        &kp PIPE
+     &kp MINUS     &kp F11       &kp F12        &mmv MOVE_UP   &trans         &trans                                             &kp N7        &kp N8        &kp N9        &trans        &trans        &kp PIPE
 // ├─────────────┼─────────────┼──────────────┼──────────────┼──────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &kp PLUS      &trans        &trans         &trans         &trans         &trans                                             &kp N4        &kp N5        &kp N6        &trans        &trans        &trans
+     &kp PLUS      &trans       &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &trans                                             &kp N4        &kp N5        &kp N6        &trans        &trans        &trans
 // ├─────────────┼─────────────┼──────────────┼──────────────┼──────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &trans        &trans        &trans         &trans         &trans         &trans        &trans                 &trans        &kp N1        &kp N2        &kp N3        &trans        &trans        &trans
 // ├─────────────┼─────────────┼──────────────┼──────────────┼──────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                                                 &trans         &trans         &trans        &trans                 &kp N0        &trans        &trans        &kp BSLH
 // ╰─────────────┴─────────────┴──────────────┴──────────────┴──────────────┴─────────────┴─────────────╯        ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
 
-//   &kp MINUS     &kp F11       &kp F12        &mmv MOVE_UP   &trans         &trans                                             &kp N7        &kp N8        &kp N9        &trans        &trans        &kp PIPE
-//   &kp PLUS      &trans       &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &trans                                             &kp N4        &kp N5        &kp N6        &trans        &trans        &trans
+//   &kp MINUS     &kp F11       &kp F12        &trans         &trans         &trans                                             &kp N7        &kp N8        &kp N9        &trans        &trans        &kp PIPE
+//   &kp PLUS      &trans        &trans         &trans         &trans         &trans                                             &kp N4        &kp N5        &kp N6        &trans        &trans        &trans
 
                 >;
         };
@@ -290,7 +290,7 @@ keymap {
         nav_layer {
             bindings = <
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮        ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-     &trans        &trans        &trans        &trans        &trans        &trans                                             &trans        &trans        &trans        &trans        &trans        &trans
+     &out OUT_TOG  &bt BT_SEL 0  &bt BT_SEL 1  &trans        &trans        &trans                                             &trans        &trans        &trans        &trans        &trans        &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &trans        &trans        &trans        &trans        &trans        &trans                                             &kp PG_UP     &kp HOME      &kp UP        &kp END       &trans        &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
