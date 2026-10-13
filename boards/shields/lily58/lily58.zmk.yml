@@ -13,6 +13,6 @@ features:
   - underglow
   - encoder
 siblings:
-  - Lily58_central
-  - Lily58_left
-  - Lily58_right
+  - lily58_central
+  - lily58_left
+  - lily58_right
