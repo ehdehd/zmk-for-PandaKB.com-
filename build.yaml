@@ -2,18 +2,7 @@ include:
   - board: nice_nano/nrf52840/zmk
     shield: lily58_central dongle_display
     artifact-name: panda_lily58_central_display
-
-#  - board: nice_nano/nrf52840/zmk
-#    shield: lily58_left nice_epaper
-#    artifact-name: lily58_left
-    
-#  - board: nice_nano/nrf52840/zmk
-#    shield: lily58_right nice_epaper
-#    artifact-name: lily58_right
-
-#  - board: nice_nano/nrf52840/zmk
-#    shield: lily58_central
-#    artifact-name: lily58_central
+    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=y
   
   - board: nice_nano/nrf52840/zmk
     shield: lily58_left
