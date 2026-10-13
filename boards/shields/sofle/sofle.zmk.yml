@@ -13,6 +13,6 @@ features:
   - underglow
   - encoder
 siblings:
-  - Sofle_dongle_central
-  - Sofle_dongle_left
-  - Sofle_dongle_right
+  - sofle_central
+  - sofle_left
+  - sofle_right
