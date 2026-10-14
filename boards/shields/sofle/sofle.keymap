@@ -256,7 +256,7 @@ keymap {
                                  &mo NUM      &kp LALT     &kp LGUI     &kp LCTRL   &lt NUM SPACE         &lt NAV SPACE &kp RALT     &kp RCTRL    &kp FSLH     &mo NAV
 // ╰──────────────┴────────────┴────────────┴────────────┴────────────┴────────────┴────────────╯        ╰────────────┴────────────┴────────────┴────────────┴────────────┴────────────┴────────────╯
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_DN PG_UP>;
         };
 
         num_layer {
@@ -274,7 +274,7 @@ keymap {
                                  &trans         &trans         &trans         &trans        &trans                 &kp N0        &trans        &trans        &kp BSLH      &trans
 // ╰─────────────┴─────────────┴──────────────┴──────────────┴──────────────┴─────────────┴─────────────╯        ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
             >;
-//            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_DN PG_UP>;
         };
 
         nav_layer {
@@ -292,7 +292,7 @@ keymap {
                                  &trans        &trans        &trans        &trans        &trans                 &trans        &trans        &trans        &trans        &trans
 // ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯        ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
             >;
-//            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_DN PG_UP>;
         };
 
         bt_layer {
@@ -310,7 +310,7 @@ keymap {
                                  &trans        &trans        &trans        &trans        &trans                 &trans         &trans        &trans        &trans        &trans
 // ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯        ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
              >;
-//            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_DN PG_UP>;
         };
     };
 };
