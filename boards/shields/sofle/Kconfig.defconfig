@@ -37,6 +37,8 @@ endif
 if SHIELD_SOFLE_LEFT || SHIELD_SOFLE_RIGHT
     config ZMK_SPLIT_ROLE_CENTRAL
         default n
+    config ZMK_DISPLAY
+        default n
 endif
 
 if SHIELD_SOFLE_LEFT || SHIELD_SOFLE_RIGHT || SHIELD_SOFLE_CENTRAL
