@@ -242,6 +242,14 @@ behaviors {
             tapping-term-ms = <TIMEOUT>;                // 200
             bindings = <&kp>, <&kp>;
         };
+        
+        scroll_up_down: behavior_sensor_rotate_mouse_wheel_up_down {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+
+            tap-ms = <20>;
+        };
 };
 
 keymap {
@@ -263,8 +271,10 @@ keymap {
                                  &mo NUM      &kp LALT     &kp LGUI     &kp LCTRL   &lt NUM SPACE         &lt NAV SPACE &kp RALT     &kp RCTRL    &kp FSLH     &mo NAV
 // ╰──────────────┴────────────┴────────────┴────────────┴────────────┴────────────┴────────────╯        ╰────────────┴────────────┴────────────┴────────────┴────────────┴────────────┴────────────╯
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_DN PG_UP>;
+            sensor-bindings = <&scroll_up_down>, <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
+//            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_DN PG_UP>;
+//        };
 
         num_layer {
             display-name = "num";
