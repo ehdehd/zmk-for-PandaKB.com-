@@ -234,6 +234,20 @@ behaviors {
             tapping-term-ms = <TIMEOUT>;                // 200
             bindings = <&kp>, <&kp>;
         };
+
+        td_punct: tap_dance_punct {
+            compatible = 'zmk, behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <CB_TIMEOUT>;
+            bindings = <&mt SEMI COMMA>, <&mt COLON DOT>;
+        };
+
+        td_ralt: tap_dance_ralt {
+            compatible = 'zmk, behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <CB_TIMEOUT>;
+            bindings = <&kp CAPS>, <&kp RALT>;
+        };
 };
 
 keymap {
@@ -250,9 +264,16 @@ keymap {
 // ├──────24──────┼─────25─────┼─────26─────┼─────27─────┼─────28─────┼─────29─────┼────────────┤        ├────────────┼─────30─────┼─────31─────┼─────32─────┼─────33─────┼─────34─────┼─────35─────┤
      &sht_ret_equal &hm LGUI A   &hm LALT S   &hm LCTRL D  &hm LSHFT F  &kp G                                           &kp H        &hm LSHFT J  &hm LCTRL K  &hm LALT L   &hm LGUI SQT &sht_ret_caps
 // ├──────36──────┼─────37─────┼─────38─────┼─────39─────┼─────40─────┼─────41─────┼─────42─────┤        ├─────43─────┼─────44─────┼─────45─────┼─────46─────┼─────47─────┼─────48─────┼─────49─────┤
-     &kp LSHFT      &mt LC(Z) Z &mt LC(X) X   &mt LC(C) C &mt LC(V) V   &kp B        &kp C_MUTE           &out OUT_TOG  &kp N        &kp M        &td_comma    &td_dot      &kp B        &kp RSHFT
+     &kp LSHFT      &mt LC(Z) Z &mt LC(X) X   &mt LC(C) C &mt LC(V) V   &kp B        &kp C_MUTE           &out OUT_TOG  &kp N        &kp M        &kp UP       &td_punct    &kp B        &kp RSHFT
 // ├──────────────┼────────────┼─────50─────┼─────51─────┼─────52─────┼─────53─────┼─────54─────┤        ├─────55─────┼─────56─────┼─────57─────┼─────58─────┼─────59─────┼────────────┼────────────┤
-                                 &kp HOME     &kp LALT     &kp LGUI     &kp LCTRL   &lt NUM SPACE         &lt NAV SPACE &kp RALT     &kp RCTRL    &kp FSLH     &kp END
+                                 &kp PG_UP    &kp PG_DN    &kp HOME     &kp END     &lt NUM SPACE         &lt NAV SPACE &td_ralt     &kp EFT      &kp DOWN     &kp RIGHT
+// ╰──────────────┴────────────┴────────────┴────────────┴────────────┴────────────┴────────────╯        ╰────────────┴────────────┴────────────┴────────────┴────────────┴────────────┴────────────╯
+
+
+// ├──────36──────┼─────37─────┼─────38─────┼─────39─────┼─────40─────┼─────41─────┼─────42─────┤        ├─────43─────┼─────44─────┼─────45─────┼─────46─────┼─────47─────┼─────48─────┼─────49─────┤
+//   &kp LSHFT      &mt LC(Z) Z &mt LC(X) X   &mt LC(C) C &mt LC(V) V   &kp B        &kp C_MUTE           &out OUT_TOG  &kp N        &kp M        &td_comma    &td_dot      &kp B        &kp RSHFT
+// ├──────────────┼────────────┼─────50─────┼─────51─────┼─────52─────┼─────53─────┼─────54─────┤        ├─────55─────┼─────56─────┼─────57─────┼─────58─────┼─────59─────┼────────────┼────────────┤
+//                               &kp HOME     &kp LALT     &kp LGUI     &kp LCTRL   &lt NUM SPACE         &lt NAV SPACE &kp RALT     &kp RCTRL    &kp FSLH     &kp END
 // ╰──────────────┴────────────┴────────────┴────────────┴────────────┴────────────┴────────────╯        ╰────────────┴────────────┴────────────┴────────────┴────────────┴────────────┴────────────╯
             >;
 //            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_DN PG_UP>;
