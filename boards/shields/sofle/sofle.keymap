@@ -217,14 +217,14 @@ behaviors {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <TD_TIMEOUT>;
-            bindings = <&kp CAPS>, <&kp RALT>;
+            bindings = <&kp RALT>, <&kp CAPS>;
         };
 
         td_rctrl: tap_dance_rctrl {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <TD_TIMEOUT>;
-            bindings = <&kp RCTRL>, <&kp RIGHT>;
+            bindings = <&kp RIGHT>, <&kp RCTRL>;
         };
 };
 
