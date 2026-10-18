@@ -248,6 +248,13 @@ behaviors {
             tapping-term-ms = <TD_TIMEOUT>;
             bindings = <&kp CAPS>, <&kp RALT>;
         };
+
+        td_rctrl: tap_dance_ralt {
+            compatible = 'zmk, behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <TD_TIMEOUT>;
+            bindings = <&kp RCTRL>, <&kp RIGHT>;
+        };
 };
 
 keymap {
@@ -266,7 +273,7 @@ keymap {
 // ├──────36──────┼─────37─────┼─────38─────┼─────39─────┼─────40─────┼─────41─────┼─────42─────┤        ├─────43─────┼─────44─────┼─────45─────┼─────46─────┼─────47─────┼─────48─────┼─────49─────┤
      &kp LSHFT      &mt LC(Z) Z &mt LC(X) X   &mt LC(C) C &mt LC(V) V   &kp B        &kp C_MUTE           &out OUT_TOG  &kp N        &kp M        &kp UP       &td_punct    &kp B        &kp RSHFT
 // ├──────────────┼────────────┼─────50─────┼─────51─────┼─────52─────┼─────53─────┼─────54─────┤        ├─────55─────┼─────56─────┼─────57─────┼─────58─────┼─────59─────┼────────────┼────────────┤
-                                 &kp PG_UP    &kp PG_DN    &kp HOME     &kp END     &lt NUM SPACE         &lt NAV SPACE &td_ralt     &kp LEFT     &kp DOWN     &kp RIGHT
+                                 &kp PG_UP    &kp PG_DN    &kp HOME     &kp END     &lt NUM SPACE         &lt NAV SPACE &td_ralt     &kp LEFT     &kp DOWN     &td_rctrl
 // ╰──────────────┴────────────┴────────────┴────────────┴────────────┴────────────┴────────────╯        ╰────────────┴────────────┴────────────┴────────────┴────────────┴────────────┴────────────╯
 
 
