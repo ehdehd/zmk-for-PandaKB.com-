@@ -1,6 +1,7 @@
 include:
   - board: nice_nano/nrf52840/zmk
     shield: sofle_central dongle_display
+    snippet: studio-rpc-usb-uart
     artifact-name: panda_sofle_central_display
 
   - board: nice_nano/nrf52840/zmk
@@ -11,7 +12,8 @@ include:
   - board: nice_nano/nrf52840/zmk
     shield: sofle_right
     artifact-name: panda_sofle_right
-
+    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+    
   - board: nice_nano/nrf52840/zmk
     shield: settings_reset
     artifact-name: nice_nano_reset
