@@ -83,7 +83,7 @@ combos {
         combo_percent {
             timeout-ms = <CB_TIMEOUT>;
             key-positions = <4 5>;   // 4 5
-            bindings = <&kp PERCENT>;     // }
+            bindings = <&kp PERCENT>;     // %
             layers = <0>;
         };
 };
@@ -277,7 +277,7 @@ keymap {
 // ├──────24──────┼──────25──────┼──────26──────┼──────27──────┼──────28──────┼──────29──────┼──────────────┤        ├────────────┼─────30─────┼─────31─────┼─────32─────┼─────33─────┼─────34─────┼─────35─────┤
      &trans         &trans        &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &msc SCRL_DOWN                                      &kp PG_DN    &kp LEFT     &kp DOWN     &kp RIGHT    &trans       &trans
 // ├──────36──────┼──────37──────┼──────38──────┼──────39──────┼──────40──────┼──────41──────┼──────42──────┤        ├─────43─────┼─────44─────┼─────45─────┼─────46─────┼─────47─────┼─────48─────┼─────49─────┤
-     &trans         &trans        &mkp LCLK      &mkp RCLK      &msc SCRL_LEFT  &msc SCRL_RIGHT &bt BT_SEL 2           &trans       &kp HOME     &kp END      &trans       &trans       &trans       &trans
+     &trans         &trans        &mkp LCLK      &mkp RCLK      &msc SCRL_LEFT  &msc SCRL_RIGHT &bt BT_SEL 2           &trans       &kp HOME     &kp END    &kp SEMICOLON  &kp COLON    &trans       &trans
 // ├──────────────┼──────────────┼──────50──────┼──────51──────┼──────52──────┼──────53──────┼──────54──────┤        ├─────55─────┼─────56─────┼─────57─────┼─────58─────┼─────59─────┼────────────┼────────────┤
                                    &trans         &trans         &trans         &trans         &trans                  &trans       &trans       &trans       &trans       &trans
 // ╰──────────────┴──────────────┴──────────────┴──────────────┴──────────────┴──────────────┴──────────────╯        ╰────────────┴────────────┴────────────┴────────────┴────────────┴────────────┴────────────╯
