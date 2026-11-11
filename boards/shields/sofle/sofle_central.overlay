@@ -14,7 +14,7 @@
     };
 };
 
-
+/*****************************************************
 &pro_micro_i2c {
     status = "okay";
     oled: ssd1306@3c {
@@ -27,14 +27,13 @@
         display-offset = <0>;
         multiplex-ratio = <63>;
         segment-remap;
-        //com-invdir;
+        com-invdir;
         //com-sequential;
         inversion-on;
         prechargep = <0x22>;
     };
 };
-
-/*****************************************************
+*****************************************************/
 &pro_micro_i2c {
     status = "okay";
 	oled: sh1106@3c {
@@ -53,4 +52,4 @@
         prechargep = <0x22>;
     };
 };
-*****************************************************/
+
